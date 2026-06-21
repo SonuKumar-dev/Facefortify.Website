@@ -448,7 +448,7 @@ h2 {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 300px;
         height: 100vh;
         background: var(--bg-secondary);
@@ -457,12 +457,12 @@ h2 {
         justify-content: flex-start;
         align-items: flex-start;
         padding: 6rem 2rem 2rem;
-        transition: var(--transition);
         z-index: 999;
+        display: none;
     }
 
     .nav-menu.active {
-        right: 0;
+        display: flex;
     }
 
     .nav-menu li {
@@ -793,6 +793,8 @@ h2 {
 .neural-node {
     fill: var(--primary-color);
     filter: drop-shadow(0 0 4px var(--cyan-glow));
+    transform-origin: center;
+    transform-box: fill-box;
     animation: pulseNode 2s infinite alternate;
 }
 
@@ -1368,6 +1370,11 @@ p.section-subtitle {
     .stat-number {
         font-size: 1.25rem;
     }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1441,6 +1448,11 @@ p.section-subtitle {
 
     .explorer-td {
         padding: 0.75rem 0.5rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
