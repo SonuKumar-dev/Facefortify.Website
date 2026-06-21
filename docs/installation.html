@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide - FaceFortify</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../index.html" class="logo">
+                    🔐 <span>FaceFortify // CMD</span>
+                </a>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                        🌙
+                    </button>
+                    <a href="../index.html" class="btn btn-primary">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-container">
+        <div class="doc-header">
+            <h1>Installation Guide</h1>
+            <p>Step-by-step instructions to install FaceFortify on your computer</p>
+        </div>
+
+        <div class="doc-content">
+            <!-- Windows Installation -->
+            <div class="platform-section">
+                <h2>🪟 Windows Installation</h2>
+                
+                <h3>System Requirements</h3>
+                <ul>
+                    <li>Windows 10 or Windows 11 (64-bit)</li>
+                    <li>500 MB free disk space</li>
+                    <li>Camera (webcam or built-in)</li>
+                    <li>Administrator rights (for first-time setup)</li>
+                </ul>
+
+                <h3>Installation Steps</h3>
+
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Download the Installer</strong>
+                    <div class="step-content">
+                        <p>Download <code>FaceFortify-Setup-1.0.0.exe</code> from the <a href="../index.html#download">download page</a>.</p>
+                        <div class="note">
+                            <strong>💡 Note:</strong> Your browser may warn about the download. Click "Keep" - this is normal for new software that isn't yet widely distributed.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Run the Installer</strong>
+                    <div class="step-content">
+                        <p>Double-click <code>FaceFortify-Setup-1.0.0.exe</code> to start installation.</p>
+                        <div class="warning">
+                            <strong>⚠️ Windows Defender Warning:</strong> If Windows shows "Windows protected your PC", click <strong>"More info"</strong> → <strong>"Run anyway"</strong>. This happens because the app isn't code-signed yet.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Follow Setup Wizard</strong>
+                    <div class="step-content">
+                        <ol>
+                            <li>Click <strong>"Next"</strong> on the welcome screen</li>
+                            <li>Choose installation folder (or keep default)</li>
+                            <li>Select if you want a desktop shortcut</li>
+                            <li>Click <strong>"Install"</strong></li>
+                            <li>Wait for installation to complete (~30 seconds)</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Launch FaceFortify</strong>
+                    <div class="step-content">
+                        <p>After installation completes:</p>
+                        <ul>
+                            <li>Check "Launch FaceFortify" and click <strong>"Finish"</strong>, OR</li>
+                            <li>Find it in Start Menu → Search "FaceFortify"</li>
+                        </ul>
+                        <div class="success">
+                            <strong>✅ Installation Complete!</strong> FaceFortify will ask for camera permission on first launch.
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Uninstallation</h3>
+                <p>To remove FaceFortify:</p>
+                <ol>
+                    <li>Go to <strong>Settings</strong> → <strong>Apps</strong> → <strong>Installed apps</strong></li>
+                    <li>Find "FaceFortify" in the list</li>
+                    <li>Click the three dots → <strong>Uninstall</strong></li>
+                    <li>Follow the prompts</li>
+                </ol>
+                <div class="note">
+                    <strong>💡 Your Data:</strong> Your encrypted folders and face data are stored separately in <code>%APPDATA%\FaceFortify</code>. They won't be deleted when you uninstall. Delete this folder manually if you want to remove all data.
+                </div>
+            </div>
+
+            <!-- Linux Installation -->
+            <div class="platform-section">
+                <h2>🐧 Linux Installation</h2>
+                
+                <h3>System Requirements</h3>
+                <ul>
+                    <li>Linux kernel 4.0 or later (x86_64)</li>
+                    <li>500 MB free disk space</li>
+                    <li>Camera with V4L2 support</li>
+                    <li>FUSE (for AppImage) - usually pre-installed</li>
+                </ul>
+
+                <h3>Supported Distributions</h3>
+                <ul>
+                    <li>Ubuntu 20.04 and later</li>
+                    <li>Fedora 35 and later</li>
+                    <li>Debian 11 and later</li>
+                    <li>Arch Linux</li>
+                    <li>Any modern distribution with kernel 4.0+</li>
+                </ul>
+
+                <h3>Installation Steps</h3>
+
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Download AppImage</strong>
+                    <div class="step-content">
+                        <p>Download <code>FaceFortify-Linux-x86_64.AppImage</code> from the <a href="../index.html#download">download page</a>.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Make it Executable</strong>
+                    <div class="step-content">
+                        <p>Open Terminal in your Downloads folder and run:</p>
+                        <code>chmod +x FaceFortify-Linux-x86_64.AppImage</code>
+                        
+                        <p><strong>Or using File Manager:</strong></p>
+                        <ol>
+                            <li>Right-click the AppImage file</li>
+                            <li>Select <strong>"Properties"</strong></li>
+                            <li>Go to <strong>"Permissions"</strong> tab</li>
+                            <li>Check <strong>"Allow executing file as program"</strong></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Run FaceFortify</strong>
+                    <div class="step-content">
+                        <p>Double-click the AppImage file, or run in terminal:</p>
+                        <code>./FaceFortify-Linux-x86_64.AppImage</code>
+                        
+                        <div class="success">
+                            <strong>✅ That's it!</strong> FaceFortify will launch. No installation needed - it's portable!
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Optional: Install to System</h3>
+                <div class="step-content">
+                    <p>To add FaceFortify to your application menu:</p>
+                    <ol>
+                        <li>Move the AppImage to a permanent location:
+                            <br><code>mkdir -p ~/Applications</code>
+                            <br><code>mv FaceFortify-Linux-x86_64.AppImage ~/Applications/</code>
+                        </li>
+                        <li>Run it once - it will offer to integrate with your desktop</li>
+                        <li>Click "Yes" to add to application menu</li>
+                    </ol>
+                </div>
+
+                <h3>Camera Permissions</h3>
+                <div class="note">
+                    <strong>💡 Camera Access:</strong> On first launch, your system may ask for camera permission. Click <strong>"Allow"</strong>. If the camera doesn't work, check your privacy settings or run: <code>sudo chmod 666 /dev/video0</code>
+                </div>
+
+                <h3>Uninstallation</h3>
+                <p>Simply delete the AppImage file. Your data is stored separately in <code>~/.local/share/FaceFortify</code>.</p>
+            </div>
+
+            <!-- macOS Installation -->
+            <div class="platform-section">
+                <h2>🍎 macOS Installation</h2>
+                
+                <h3>System Requirements</h3>
+                <ul>
+                    <li>macOS 10.15 (Catalina) or later</li>
+                    <li>500 MB free disk space</li>
+                    <li>Built-in camera or external webcam</li>
+                </ul>
+
+                <h3>Choose Your Version</h3>
+                <ul>
+                    <li><strong>Intel Macs:</strong> Download <code>FaceFortify-macOS-x64.dmg</code></li>
+                    <li><strong>Apple Silicon (M1/M2/M3):</strong> Download <code>FaceFortify-macOS-arm64.dmg</code></li>
+                </ul>
+                <div class="note">
+                    <strong>💡 Not sure?</strong> Click Apple menu () → About This Mac. If it says "Apple M1/M2/M3", download arm64. Otherwise, download x64.
+                </div>
+
+                <h3>Installation Steps</h3>
+
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Download and Open DMG</strong>
+                    <div class="step-content">
+                        <p>Download the appropriate DMG file and double-click to open it.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Drag to Applications</strong>
+                    <div class="step-content">
+                        <p>A window will open showing the FaceFortify app and your Applications folder. Drag FaceFortify to Applications.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>First Launch (Important!)</strong>
+                    <div class="step-content">
+                        <p>Go to Applications folder and find FaceFortify.</p>
+                        <div class="warning">
+                            <strong>⚠️ Security Warning:</strong> macOS will say "FaceFortify cannot be opened because the developer cannot be verified." This is normal for unsigned apps. Follow these steps:
+                        </div>
+                        <ol>
+                            <li><strong>Right-click</strong> (or Control+click) the FaceFortify app</li>
+                            <li>Select <strong>"Open"</strong> from the menu</li>
+                            <li>Click <strong>"Open"</strong> in the warning dialog</li>
+                        </ol>
+                        <div class="note">
+                            <strong>💡 Note:</strong> You only need to do this once. After the first time, you can open it normally.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Grant Camera Permission</strong>
+                    <div class="step-content">
+                        <p>When FaceFortify asks for camera access:</p>
+                        <ol>
+                            <li>Click <strong>"OK"</strong> in the permission dialog</li>
+                            <li>If you accidentally denied it, go to:
+                                <br><strong>System Preferences</strong> → <strong>Security & Privacy</strong> → <strong>Camera</strong>
+                                <br>Check the box next to FaceFortify
+                            </li>
+                        </ol>
+                        <div class="success">
+                            <strong>✅ All Set!</strong> FaceFortify is now installed and ready to use.
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Alternative Method: Terminal</h3>
+                <div class="step-content">
+                    <p>If the right-click method doesn't work, you can use Terminal:</p>
+                    <code>xattr -cr /Applications/FaceFortify.app</code>
+                    <p>Then open the app normally.</p>
+                </div>
+
+                <h3>Uninstallation</h3>
+                <ol>
+                    <li>Open Applications folder</li>
+                    <li>Drag FaceFortify to Trash</li>
+                    <li>Empty Trash</li>
+                </ol>
+                <div class="note">
+                    <strong>💡 Your Data:</strong> Your encrypted folders and settings are stored in <code>~/Library/Application Support/FaceFortify</code>. Delete this folder manually if you want to remove all data.
+                </div>
+            </div>
+
+            <!-- Post-Installation -->
+            <div class="platform-section">
+                <h2>🚀 After Installation</h2>
+                
+                <h3>First Time Setup</h3>
+                <ol>
+                    <li><strong>Register Your Face</strong>
+                        <ul>
+                            <li>Click "Get Started" or "Register Your Face"</li>
+                            <li>Allow camera access when prompted</li>
+                            <li>Look at the camera - it will capture 30 frames</li>
+                            <li>Keep your face in the green box</li>
+                            <li>Takes about 30 seconds</li>
+                        </ul>
+                    </li>
+                    <li><strong>Set Backup Password (Recommended)</strong>
+                        <ul>
+                            <li>In case you change computers or hardware</li>
+                            <li>Store it in a password manager</li>
+                            <li>You can skip this, but it's safer to set one</li>
+                        </ul>
+                    </li>
+                    <li><strong>Add Folders to Lock</strong>
+                        <ul>
+                            <li>Click "Add Folder" on the main screen</li>
+                            <li>Select folders you want to protect</li>
+                            <li>Click "Lock All" to encrypt them</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="success">
+                    <strong>🎉 You're Ready!</strong> Your folders are now protected with facial recognition and AES-256 encryption.
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="platform-section">
+                <h2>🔧 Troubleshooting</h2>
+                
+                <h3>Camera Not Working</h3>
+                <ul>
+                    <li><strong>Windows:</strong> Settings → Privacy → Camera → Allow apps to access camera</li>
+                    <li><strong>Linux:</strong> Check if camera works in other apps. Try: <code>ls /dev/video*</code></li>
+                    <li><strong>macOS:</strong> System Preferences → Security & Privacy → Camera → Enable FaceFortify</li>
+                </ul>
+
+                <h3>App Won't Launch</h3>
+                <ul>
+                    <li><strong>Windows:</strong> Right-click → Run as Administrator</li>
+                    <li><strong>Linux:</strong> Make sure AppImage is executable: <code>chmod +x FaceFortify*.AppImage</code></li>
+                    <li><strong>macOS:</strong> Use Right-click → Open method (see installation steps)</li>
+                </ul>
+
+                <h3>Face Not Recognized</h3>
+                <ul>
+                    <li>Ensure good lighting (not too dark or bright)</li>
+                    <li>Face the camera directly</li>
+                    <li>Remove glasses temporarily during registration</li>
+                    <li>Keep face in the green detection box</li>
+                </ul>
+
+                <h3>Need More Help?</h3>
+                <ul>
+                    <li>📖 Read the <a href="user-guide.html">User Guide</a></li>
+                    <li>❓ Check <a href="user-guide.html#troubleshooting">Troubleshooting</a></li>
+                    <li>🐛 Report issues on <a href="https://github.com/SonuKumar-dev/FaceFortify/issues">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FaceFortify. Released under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

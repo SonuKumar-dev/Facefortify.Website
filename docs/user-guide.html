@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - FaceFortify</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../index.html" class="logo">
+                    🔐 <span>FaceFortify // CMD</span>
+                </a>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                        🌙
+                    </button>
+                    <a href="../index.html" class="btn btn-primary">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-container">
+        <div class="doc-header">
+            <h1>User Guide</h1>
+            <p>Everything you need to know to use FaceFortify</p>
+        </div>
+
+        <div class="doc-content">
+            <!-- Getting Started -->
+            <div class="guide-section">
+                <h2>🚀 Getting Started</h2>
+                
+                <h3>First Launch</h3>
+                <p>When you launch FaceFortify for the first time:</p>
+                <ol>
+                    <li>The app will ask for <strong>camera permission</strong> - click Allow/Yes</li>
+                    <li>You'll see the landing page with a "Get Started" button</li>
+                    <li>Click <strong>"Get Started"</strong> to begin registration</li>
+                </ol>
+
+                <h3>Enter Your Name</h3>
+                <p>You'll be asked to enter your name. This is just for display - it doesn't affect security.</p>
+                
+                <div class="tip">
+                    <strong>💡 Tip:</strong> Use your real name so you remember which profile you created.
+                </div>
+            </div>
+
+            <!-- Face Registration -->
+            <div class="guide-section">
+                <h2>👤 Registering Your Face</h2>
+                
+                <h3>What Happens During Registration</h3>
+                <p>FaceFortify will capture 30 frames of your face to create a secure profile. This takes about 30-60 seconds.</p>
+
+                <h3>Best Practices for Registration</h3>
+                <ul>
+                    <li>✅ <strong>Good Lighting:</strong> Face a window or light source. Avoid backlighting.</li>
+                    <li>✅ <strong>Face the Camera:</strong> Look directly at the camera, keep your head straight.</li>
+                    <li>✅ <strong>Stay in Frame:</strong> Keep your face inside the green rectangle.</li>
+                    <li>✅ <strong>Stay Still:</strong> Don't move too much, but slight movements are okay.</li>
+                    <li>✅ <strong>Remove Obstructions:</strong> Take off sunglasses or hats that cover your face.</li>
+                    <li>✅ <strong>Be Natural:</strong> Normal expression, you can wear regular glasses.</li>
+                </ul>
+
+                <h3>What You'll See</h3>
+                <ul>
+                    <li><strong>Green Rectangle:</strong> Shows detected face</li>
+                    <li><strong>Cyan Circles:</strong> Shows detected eyes (both eyes should be visible)</li>
+                    <li><strong>Confidence Score:</strong> Should be 80%+ for good detection</li>
+                    <li><strong>Progress Counter:</strong> "Capturing... 15/30 frames"</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>⚠️ Important:</strong> Both eyes must be detected for successful registration. If you wear glasses, make sure there's no glare on the lenses.
+                </div>
+
+                <h3>Common Registration Issues</h3>
+                <ul>
+                    <li><strong>"No face detected":</strong> Move closer to camera or improve lighting</li>
+                    <li><strong>"No eyes detected":</strong> Face camera directly, remove sunglasses</li>
+                    <li><strong>Frame count not increasing:</strong> Stay still and ensure good lighting</li>
+                </ul>
+
+                <div class="success">
+                    <strong>✅ Success:</strong> Once 30 frames are captured, your face is registered and you can start locking folders!
+                </div>
+            </div>
+
+            <!-- Setting Backup Password -->
+            <div class="guide-section">
+                <h2>🔑 Setting a Backup Password</h2>
+                
+                <h3>Why Set a Backup Password?</h3>
+                <p>Your main encryption key is tied to:</p>
+                <ul>
+                    <li>Your face (what you are)</li>
+                    <li>Your computer's hardware (what you have)</li>
+                </ul>
+
+                <p><strong>If you change your computer or upgrade hardware</strong> (new motherboard, CPU, etc.), you won't be able to unlock your folders!</p>
+
+                <h3>When to Set It</h3>
+                <ul>
+                    <li>✅ <strong>Recommended for everyone</strong> - Better safe than sorry</li>
+                    <li>✅ <strong>Essential if:</strong> You plan to upgrade your PC</li>
+                    <li>✅ <strong>Essential if:</strong> You use a laptop that might need repairs</li>
+                    <li>❌ <strong>Skip if:</strong> You use a desktop PC that never changes AND you accept the risk</li>
+                </ul>
+
+                <h3>How to Set It</h3>
+                <ol>
+                    <li>Go to <strong>Settings</strong> (gear icon)</li>
+                    <li>Find "Backup Password" section</li>
+                    <li>Click <strong>"Set Backup Password"</strong></li>
+                    <li>Enter a strong password</li>
+                    <li>Confirm the password</li>
+                    <li>Store it safely in a password manager!</li>
+                </ol>
+
+                <div class="warning">
+                    <strong>⚠️ Warning:</strong> If you lose both your hardware AND your backup password, your data is permanently lost. There is NO recovery method. This is by design for maximum security.
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Password Tips:</strong>
+                    <ul>
+                        <li>Use at least 12 characters</li>
+                        <li>Mix uppercase, lowercase, numbers, symbols</li>
+                        <li>Store in a password manager (LastPass, 1Password, Bitwarden)</li>
+                        <li>Don't use the same password you use elsewhere</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Locking Folders -->
+            <div class="guide-section">
+                <h2>🔒 Locking Folders</h2>
+                
+                <h3>Adding Folders</h3>
+                <ol>
+                    <li>Click <strong>"Add Folder"</strong> on the main screen</li>
+                    <li>Browse to the folder you want to protect</li>
+                    <li>Select it and click <strong>"Select Folder"</strong></li>
+                    <li>The folder appears in your list</li>
+                </ol>
+
+                <h3>Locking Your Folders</h3>
+                <ol>
+                    <li>Click <strong>"Lock All"</strong> button</li>
+                    <li>The camera window opens for face verification</li>
+                    <li>Look at the camera (only takes 10 frames, ~10 seconds)</li>
+                    <li>Once verified, all folders are encrypted</li>
+                </ol>
+
+                <div class="tip">
+                    <strong>💡 What Happens When You Lock:</strong>
+                    <ul>
+                        <li>Every file in the folder is encrypted with AES-256</li>
+                        <li>Access permissions are removed (can't open without unlocking)</li>
+                        <li>Files appear as encrypted data if opened</li>
+                        <li>You must unlock to access files again</li>
+                    </ul>
+                </div>
+
+                <h3>What You Can Lock</h3>
+                <ul>
+                    <li>✅ Personal documents</li>
+                    <li>✅ Photos and videos</li>
+                    <li>✅ Work files</li>
+                    <li>✅ Financial records</li>
+                    <li>✅ Any folder with sensitive data</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>⚠️ Don't Lock These:</strong>
+                    <ul>
+                        <li>❌ System folders (Windows, Program Files, etc.)</li>
+                        <li>❌ Your entire user folder</li>
+                        <li>❌ Folders with actively running programs</li>
+                        <li>❌ Shared network folders</li>
+                    </ul>
+                </div>
+
+                <h3>Lock Time</h3>
+                <p>Locking time depends on folder size:</p>
+                <ul>
+                    <li>Small folder (100 MB): ~5 seconds</li>
+                    <li>Medium folder (1 GB): ~30 seconds</li>
+                    <li>Large folder (10 GB): ~3-5 minutes</li>
+                </ul>
+            </div>
+
+            <!-- Unlocking Folders -->
+            <div class="guide-section">
+                <h2>🔓 Unlocking Folders</h2>
+                
+                <h3>How to Unlock</h3>
+                <ol>
+                    <li>Click <strong>"Unlock All"</strong> button</li>
+                    <li>Camera opens for face verification</li>
+                    <li>Look at the camera (10 frames)</li>
+                    <li>Once verified, folders are decrypted and accessible</li>
+                </ol>
+
+                <h3>Verification Process</h3>
+                <p>During unlock, FaceFortify:</p>
+                <ul>
+                    <li>Captures 10 frames of your face</li>
+                    <li>Compares with your registered face profile</li>
+                    <li>Needs 60% match rate (6 out of 10 frames)</li>
+                    <li>Verifies both eyes are detected</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>💡 Quick Unlock Tips:</strong>
+                    <ul>
+                        <li>Face the camera directly</li>
+                        <li>Use similar lighting as registration</li>
+                        <li>Wear similar glasses (or none) as registration</li>
+                        <li>Keep face in the green box</li>
+                    </ul>
+                </div>
+
+                <h3>If Verification Fails</h3>
+                <p>If your face isn't recognized:</p>
+                <ol>
+                    <li><strong>Try again</strong> with better lighting</li>
+                    <li><strong>Use backup password</strong> (if you set one):
+                        <ul>
+                            <li>Click "Use Backup Password" option</li>
+                            <li>Enter your password</li>
+                            <li>Folders will unlock without face scan</li>
+                        </ul>
+                    </li>
+                    <li><strong>Re-register your face</strong> if you've changed significantly</li>
+                </ol>
+
+                <div class="warning">
+                    <strong>⚠️ No Backup Password?</strong> If face verification fails and you don't have a backup password, you cannot unlock your folders. Make sure to set a backup password!
+                </div>
+            </div>
+
+            <!-- Managing Folders -->
+            <div class="guide-section">
+                <h2>📁 Managing Your Folders</h2>
+                
+                <h3>Removing Folders from List</h3>
+                <ol>
+                    <li>Make sure the folder is <strong>unlocked</strong> first</li>
+                    <li>Click the "Remove" button next to the folder</li>
+                    <li>Confirm removal</li>
+                </ol>
+
+                <div class="warning">
+                    <strong>⚠️ Important:</strong> You must unlock a folder before removing it from the list. If you remove a locked folder, it stays encrypted and you'll need to add it back to unlock it.
+                </div>
+
+                <h3>Checking Folder Status</h3>
+                <p>Each folder shows its current status:</p>
+                <ul>
+                    <li>🔒 <strong>Locked</strong> - Encrypted and protected</li>
+                    <li>🔓 <strong>Unlocked</strong> - Accessible normally</li>
+                </ul>
+
+                <h3>Individual vs. All Folders</h3>
+                <ul>
+                    <li><strong>"Lock All":</strong> Locks all unlocked folders at once</li>
+                    <li><strong>"Unlock All":</strong> Unlocks all locked folders at once</li>
+                    <li><strong>Individual buttons:</strong> Lock or unlock specific folders</li>
+                </ul>
+            </div>
+
+            <!-- Settings -->
+            <div class="guide-section">
+                <h2>⚙️ Settings & Preferences</h2>
+                
+                <h3>Available Settings</h3>
+                
+                <h4>User Profile</h4>
+                <ul>
+                    <li><strong>Change Name:</strong> Update your display name</li>
+                    <li><strong>Re-register Face:</strong> Update your face profile if you've changed significantly</li>
+                    <li><strong>View Statistics:</strong> See login count and last login time</li>
+                </ul>
+
+                <h4>Security</h4>
+                <ul>
+                    <li><strong>Set/Change Backup Password:</strong> Create or update your recovery password</li>
+                    <li><strong>View Encryption Info:</strong> See technical details about your encryption</li>
+                </ul>
+
+                <h4>Data Location</h4>
+                <ul>
+                    <li><strong>Windows:</strong> <code>%APPDATA%\FaceFortify</code></li>
+                    <li><strong>Linux:</strong> <code>~/.local/share/FaceFortify</code></li>
+                    <li><strong>macOS:</strong> <code>~/Library/Application Support/FaceFortify</code></li>
+                </ul>
+
+                <div class="tip">
+                    <strong>💡 Tip:</strong> You can backup these folders to preserve your settings, but remember they contain encrypted data tied to your specific hardware!
+                </div>
+            </div>
+
+            <!-- Best Practices -->
+            <div class="guide-section">
+                <h2>✨ Best Practices</h2>
+                
+                <h3>Security Best Practices</h3>
+                <ul>
+                    <li>✅ <strong>Set a backup password</strong> and store it securely</li>
+                    <li>✅ <strong>Lock your computer</strong> when you leave it (Win+L on Windows)</li>
+                    <li>✅ <strong>Use a strong OS password</strong> - FaceFortify adds security, but OS login is your first line of defense</li>
+                    <li>✅ <strong>Keep your OS updated</strong> for security patches</li>
+                    <li>✅ <strong>Don't share your computer</strong> while folders are unlocked</li>
+                </ul>
+
+                <h3>Usage Best Practices</h3>
+                <ul>
+                    <li>✅ <strong>Unlock when needed, lock when done</strong> - Don't keep sensitive folders unlocked all the time</li>
+                    <li>✅ <strong>Backup important files</strong> before encrypting (to external drive or cloud)</li>
+                    <li>✅ <strong>Test unlock</strong> after first locking to ensure everything works</li>
+                    <li>✅ <strong>Keep good lighting</strong> for reliable face recognition</li>
+                </ul>
+
+                <h3>What NOT to Do</h3>
+                <ul>
+                    <li>❌ Don't lock system folders or program files</li>
+                    <li>❌ Don't delete the FaceFortify data folder manually</li>
+                    <li>❌ Don't lock folders that are being used by running programs</li>
+                    <li>❌ Don't forget your backup password!</li>
+                </ul>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="guide-section">
+                <h2>🔧 Troubleshooting</h2>
+                
+                <h3>Face Not Recognized</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Improve lighting - face a window or light</li>
+                    <li>Remove sunglasses or heavy makeup</li>
+                    <li>Face the camera directly, not at an angle</li>
+                    <li>If you've changed significantly (new beard, haircut), re-register your face</li>
+                    <li>Use backup password if available</li>
+                </ul>
+
+                <h3>Locked Folder Won't Open</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Make sure you clicked "Unlock" successfully</li>
+                    <li>Verify the folder status shows "Unlocked"</li>
+                    <li>Try unlocking again</li>
+                    <li>Restart FaceFortify and try again</li>
+                </ul>
+
+                <h3>Hardware Changed - Can't Unlock</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Use your backup password to unlock</li>
+                    <li>If you don't have a backup password, your data cannot be recovered</li>
+                    <li>This is a security feature, not a bug</li>
+                </ul>
+
+                <h3>Camera Not Working</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check camera works in other apps</li>
+                    <li>Grant camera permission in OS settings</li>
+                    <li>Restart FaceFortify</li>
+                    <li>Restart your computer</li>
+                </ul>
+
+                <h3>Need More Help?</h3>
+                <ul>
+                    <li>🔒 Read <a href="security.html">Security Documentation</a></li>
+                    <li>🐛 Report bugs on <a href="https://github.com/SonuKumar-dev/FaceFortify/issues">GitHub</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="guide-section">
+                <h2>📋 Quick Reference</h2>
+                
+                <h3>Common Tasks</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: #f3f4f6;">
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e7eb;">Task</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e7eb;">How To</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Add folder</td>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Click "Add Folder" → Select folder</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Lock folders</td>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Click "Lock All" → Verify face</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Unlock folders</td>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Click "Unlock All" → Verify face</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Set backup password</td>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Settings → Set Backup Password</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Re-register face</td>
+                        <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Settings → Re-register Face</td>
+                    </tr>
+                </table>
+
+                <h3>Keyboard Shortcuts</h3>
+                <ul>
+                    <li><strong>Ctrl+L</strong> (Win/Linux) or <strong>Cmd+L</strong> (Mac): Lock all folders</li>
+                    <li><strong>Ctrl+U</strong> (Win/Linux) or <strong>Cmd+U</strong> (Mac): Unlock all folders</li>
+                    <li><strong>Ctrl+,</strong> (Win/Linux) or <strong>Cmd+,</strong> (Mac): Open Settings</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FaceFortify. Released under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
