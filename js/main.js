@@ -259,19 +259,34 @@ if (cockpitReadout) {
 // Terminal-Style Download script logic
 const platformShells = {
     windows: [
-        { text: 'powershell -Command "iwr -useb https://facefortify.netlify.app/install.ps1 | iex"', isCmd: true, downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-Setup-1.0.0.exe' },
+        { 
+            text: 'powershell -Command "iwr -useb https://facefortify.netlify.app/install.ps1 | iex"', 
+            isCmd: true, 
+            downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Setup-1.0.0.exe',
+            portableLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Portable-1.0.0.zip'
+        },
         { text: 'Checking system compatibility... Windows 10/11 x64 detected.', isCmd: false },
         { text: 'Downloading FaceFortify Installer (~200MB)...', isCmd: false },
         { text: 'Installation directory set: C:\\Program Files\\FaceFortify', isCmd: false }
     ],
     linux: [
-        { text: 'curl -fsSL https://facefortify.netlify.app/install.sh | sh', isCmd: true, downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify.Desktop/releases/latest/download/FaceFortify-Linux-x86_64.AppImage' },
+        { 
+            text: 'curl -fsSL https://facefortify.netlify.app/install.sh | sh', 
+            isCmd: true, 
+            downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-1.0.0.AppImage',
+            portableLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-1.0.0.tar.gz'
+        },
         { text: 'Checking CPU architecture... x86_64 FUSE supported.', isCmd: false },
         { text: 'Downloading FaceFortify Universal AppImage...', isCmd: false },
         { text: 'Symlinking application to /usr/local/bin/facefortify...', isCmd: false }
     ],
     macos: [
-        { text: 'curl -fsSL https://facefortify.netlify.app/mac-install.sh | bash', isCmd: true, downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-macOS-arm64.dmg' },
+        { 
+            text: 'curl -fsSL https://facefortify.netlify.app/mac-install.sh | bash', 
+            isCmd: true, 
+            downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-1.0.0.dmg',
+            portableLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Portable-1.0.0-mac.zip'
+        },
         { text: 'System detected: Apple Silicon CPU.', isCmd: false },
         { text: 'Downloading FaceFortify-macOS-arm64.dmg...', isCmd: false },
         { text: 'Running bypass quarantine command: xattr -cr /Applications/FaceFortify.app', isCmd: false }
@@ -280,6 +295,7 @@ const platformShells = {
 
 const shellOutput = document.getElementById('shell-cmd-output');
 const downloadBtn = document.getElementById('btn-direct-download');
+const portableBtn = document.getElementById('btn-portable-download');
 const copyBtn = document.getElementById('btn-copy-shell');
 const platformTabBtns = document.querySelectorAll('.console-tab-btn');
 let activePlatform = 'windows';
@@ -296,10 +312,13 @@ function renderShell(platform) {
         shellOutput.appendChild(div);
     });
     
-    // Update Direct Download Link
+    // Update Direct & Portable Download Links
+    const activeLine = lines.find(l => l.downloadLink);
     if (downloadBtn) {
-        const activeLine = lines.find(l => l.downloadLink);
         downloadBtn.href = activeLine ? activeLine.downloadLink : '#';
+    }
+    if (portableBtn) {
+        portableBtn.href = activeLine ? activeLine.portableLink : '#';
     }
 }
 

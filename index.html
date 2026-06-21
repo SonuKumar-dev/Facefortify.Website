@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FaceFortify - Secure folder protection with facial recognition. Military-grade encryption meets cutting-edge AI.">
+    <meta name="description"
+        content="FaceFortify - Secure folder protection with facial recognition. Military-grade encryption meets cutting-edge AI.">
     <meta name="keywords" content="facial recognition, encryption, folder lock, security, privacy, AES-256">
     <meta name="author" content="FaceFortify">
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="FaceFortify - Secure Folder Protection with Facial Recognition">
-    <meta property="og:description" content="Lock your sensitive folders with your face. AES-256 encryption + AI-powered facial recognition.">
+    <meta property="og:description"
+        content="Lock your sensitive folders with your face. AES-256 encryption + AI-powered facial recognition.">
     <meta property="og:image" content="https://facefortify.netlify.app/images/social-preview.png">
-    
+
     <title>FaceFortify - Biometric Folder Lock & Cryptographic Console</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Navigation Cockpit -->
     <nav class="nav">
@@ -63,17 +67,19 @@
                         Your Face is Your <span class="gradient-text">Crypto Key</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Lock sensitive local directories with facial recognition. Military-grade AES-256-CBC encryption bounds cryptographic keys directly to your machine hardware. Zero cloud, zero telemetry.
+                        Lock sensitive local directories with facial recognition. Military-grade AES-256-CBC encryption
+                        bounds cryptographic keys directly to your machine hardware. Zero cloud, zero telemetry.
                     </p>
                     <div class="hero-buttons">
                         <a href="#download" class="btn btn-large btn-primary">
                             Init Installation
                         </a>
-                        <a href="https://github.com/SonuKumar-dev/FaceFortify" class="btn btn-large btn-secondary" target="_blank">
+                        <a href="https://github.com/SonuKumar-dev/FaceFortify" class="btn btn-large btn-secondary"
+                            target="_blank">
                             Clone Repository
                         </a>
                     </div>
-                    
+
                     <div class="hero-stats">
                         <div class="stat">
                             <span class="stat-number">AES-256-CBC</span>
@@ -94,16 +100,18 @@
                 <div class="biometric-scanner-cockpit hud-border">
                     <div class="cockpit-header">
                         <span class="cockpit-title">COCKPIT ENGINE STATUS</span>
-                        <span class="status-dot" style="width: 6px; height: 6px; background-color: var(--primary-color); border-radius: 50%; box-shadow: 0 0 6px var(--primary-color);"></span>
+                        <span class="status-dot"
+                            style="width: 6px; height: 6px; background-color: var(--primary-color); border-radius: 50%; box-shadow: 0 0 6px var(--primary-color);"></span>
                     </div>
-                    
+
                     <div class="cockpit-screen">
                         <div class="cockpit-radar-grid"></div>
                         <div class="cockpit-radar-beam"></div>
-                        
+
                         <!-- Face Biometric SVG Grid Overlay -->
                         <svg class="biometric-cockpit-mesh" viewBox="0 0 100 100">
-                            <path d="M50 15 C40 15, 30 22, 28 35 C26 48, 30 65, 40 75 C45 80, 55 80, 60 75 C70 65, 74 48, 72 35 C70 22, 60 15, 50 15 Z" />
+                            <path
+                                d="M50 15 C40 15, 30 22, 28 35 C26 48, 30 65, 40 75 C45 80, 55 80, 60 75 C70 65, 74 48, 72 35 C70 22, 60 15, 50 15 Z" />
                             <path d="M38 42 A 4 4 0 1 1 30 42 A 4 4 0 1 1 38 42 Z" />
                             <path d="M70 42 A 4 4 0 1 1 62 42 A 4 4 0 1 1 70 42 Z" />
                             <path d="M42 55 Q 50 62, 58 55" />
@@ -120,7 +128,7 @@
                             <circle cx="60" cy="75" r="1" fill="var(--primary-color)" />
                         </svg>
                     </div>
-                    
+
                     <div class="cockpit-data-readout" id="cockpit-readout">
                         <div class="readout-line">> system_biometric_diagnostics initialized...</div>
                         <div class="readout-line">> scanning_mode: idle_sleep</div>
@@ -138,7 +146,7 @@
                 <h2 class="section-title">Security Stack Analysis</h2>
                 <p class="section-subtitle">Inspect the core algorithms securing your folders offline</p>
             </div>
-            
+
             <div class="diag-container">
                 <div class="diag-tabs-menu">
                     <button class="diag-tab-btn active" data-tab="tab-neural">👤 AI Neural Model</button>
@@ -146,14 +154,16 @@
                     <button class="diag-tab-btn" data-tab="tab-hardware">💻 Hardware Binding</button>
                     <button class="diag-tab-btn" data-tab="tab-acl">🔒 OS Access Control</button>
                 </div>
-                
+
                 <!-- Tab 1: AI Neural Model -->
                 <div class="diag-panel-content active" id="tab-neural">
                     <div class="diag-panel-layout">
                         <div class="diag-panel-info">
                             <h3 class="neon-text-cyan mb-2">ArcFace Neural Network</h3>
                             <p class="mb-3" style="color: var(--text-secondary);">
-                                FaceFortify integrates the state-of-the-art ArcFace AI model directly into your local machine. The model maps 30 separate coordinates to construct a secure, 512-dimensional vector signature.
+                                FaceFortify integrates the state-of-the-art ArcFace AI model directly into your local
+                                machine. The model maps 30 separate coordinates to construct a secure, 512-dimensional
+                                vector signature.
                             </p>
                             <ul class="mb-3" style="margin-left: 1.5rem; color: var(--text-secondary);">
                                 <li>Accuracy metrics score 99%+ on standard benchmarks</li>
@@ -165,10 +175,14 @@
                             <!-- ArcFace SVG Diagram -->
                             <svg class="neural-grid-mesh" viewBox="0 0 100 60">
                                 <!-- Node Connections -->
-                                <line x1="20" y1="10" x2="50" y2="30" stroke="rgba(0, 242, 254, 0.2)" stroke-width="0.8" />
-                                <line x1="20" y1="30" x2="50" y2="30" stroke="rgba(0, 242, 254, 0.2)" stroke-width="0.8" />
-                                <line x1="20" y1="50" x2="50" y2="30" stroke="rgba(0, 242, 254, 0.2)" stroke-width="0.8" />
-                                <line x1="50" y1="30" x2="80" y2="30" stroke="rgba(127, 0, 255, 0.3)" stroke-width="0.8" />
+                                <line x1="20" y1="10" x2="50" y2="30" stroke="rgba(0, 242, 254, 0.2)"
+                                    stroke-width="0.8" />
+                                <line x1="20" y1="30" x2="50" y2="30" stroke="rgba(0, 242, 254, 0.2)"
+                                    stroke-width="0.8" />
+                                <line x1="20" y1="50" x2="50" y2="30" stroke="rgba(0, 242, 254, 0.2)"
+                                    stroke-width="0.8" />
+                                <line x1="50" y1="30" x2="80" y2="30" stroke="rgba(127, 0, 255, 0.3)"
+                                    stroke-width="0.8" />
                                 <!-- Network Nodes -->
                                 <circle class="neural-node" cx="20" cy="10" r="3" />
                                 <circle class="neural-node" cx="20" cy="30" r="3" />
@@ -179,14 +193,16 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Tab 2: Cryptography -->
                 <div class="diag-panel-content" id="tab-cryptography">
                     <div class="diag-panel-layout">
                         <div class="diag-panel-info">
                             <h3 class="neon-text-purple mb-2">PBKDF2 Key Derivation</h3>
                             <p class="mb-3" style="color: var(--text-secondary);">
-                                Encrypted key files are protected from brute force attacks using PBKDF2 hash stretching (utilizing HMAC-SHA256). The process stretches input vectors over 100,000 CPU iterations.
+                                Encrypted key files are protected from brute force attacks using PBKDF2 hash stretching
+                                (utilizing HMAC-SHA256). The process stretches input vectors over 100,000 CPU
+                                iterations.
                             </p>
                             <ul class="mb-3" style="margin-left: 1.5rem; color: var(--text-secondary);">
                                 <li>Derives keys using a dynamically generated unique cryptographed salt</li>
@@ -201,20 +217,23 @@
                                 <rect class="mixing-block" x="15" y="15" width="25" height="30" rx="2" />
                                 <rect class="mixing-block" x="60" y="15" width="25" height="30" rx="2" />
                                 <path class="mixing-arrow" d="M 40 30 L 60 30" />
-                                <text x="27.5" y="33" fill="var(--primary-color)" font-family="Space Mono" font-size="6" text-anchor="middle">SALT</text>
-                                <text x="72.5" y="33" fill="var(--secondary-light)" font-family="Space Mono" font-size="6" text-anchor="middle">KEY</text>
+                                <text x="27.5" y="33" fill="var(--primary-color)" font-family="Space Mono" font-size="6"
+                                    text-anchor="middle">SALT</text>
+                                <text x="72.5" y="33" fill="var(--secondary-light)" font-family="Space Mono"
+                                    font-size="6" text-anchor="middle">KEY</text>
                             </svg>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Tab 3: Hardware Binding -->
                 <div class="diag-panel-content" id="tab-hardware">
                     <div class="diag-panel-layout">
                         <div class="diag-panel-info">
                             <h3 class="neon-text-cyan mb-2">Machine Hardware Binding</h3>
                             <p class="mb-3" style="color: var(--text-secondary);">
-                                To guarantee that stolen hard drives or copied keyfiles remain completely useless on other computers, FaceFortify derives hashes directly from machine hardware signatures.
+                                To guarantee that stolen hard drives or copied keyfiles remain completely useless on
+                                other computers, FaceFortify derives hashes directly from machine hardware signatures.
                             </p>
                             <ul class="mb-3" style="margin-left: 1.5rem; color: var(--text-secondary);">
                                 <li>CPU serial numbers and motherboard serial identifiers are queried</li>
@@ -225,24 +244,29 @@
                         <div class="diag-visual-slot">
                             <svg class="neural-grid-mesh" viewBox="0 0 100 60">
                                 <!-- Hardware bind graphic -->
-                                <rect x="25" y="10" width="50" height="40" rx="4" fill="none" stroke="var(--primary-color)" stroke-width="1" />
+                                <rect x="25" y="10" width="50" height="40" rx="4" fill="none"
+                                    stroke="var(--primary-color)" stroke-width="1" />
                                 <line x1="25" y1="20" x2="75" y2="20" stroke="var(--primary-color)" stroke-width="1" />
                                 <line x1="25" y1="40" x2="75" y2="40" stroke="var(--primary-color)" stroke-width="1" />
-                                <text x="50" y="17" fill="var(--primary-color)" font-family="Space Mono" font-size="5" text-anchor="middle">CPU SIG</text>
-                                <text x="50" y="32" fill="var(--primary-color)" font-family="Space Mono" font-size="5" text-anchor="middle">MAC ADDR</text>
-                                <text x="50" y="47" fill="var(--primary-color)" font-family="Space Mono" font-size="5" text-anchor="middle">MOTHERBOARD</text>
+                                <text x="50" y="17" fill="var(--primary-color)" font-family="Space Mono" font-size="5"
+                                    text-anchor="middle">CPU SIG</text>
+                                <text x="50" y="32" fill="var(--primary-color)" font-family="Space Mono" font-size="5"
+                                    text-anchor="middle">MAC ADDR</text>
+                                <text x="50" y="47" fill="var(--primary-color)" font-family="Space Mono" font-size="5"
+                                    text-anchor="middle">MOTHERBOARD</text>
                             </svg>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Tab 4: OS Access Control -->
                 <div class="diag-panel-content" id="tab-acl">
                     <div class="diag-panel-layout">
                         <div class="diag-panel-info">
                             <h3 class="neon-text-purple mb-2">OS-Level Permissions Lock</h3>
                             <p class="mb-3" style="color: var(--text-secondary);">
-                                Besides binary file encryption, the desktop app modifies system access control permissions dynamically on folders.
+                                Besides binary file encryption, the desktop app modifies system access control
+                                permissions dynamically on folders.
                             </p>
                             <ul class="mb-3" style="margin-left: 1.5rem; color: var(--text-secondary);">
                                 <li>Applies OS Access Control Lists (ACL) on Windows hosts</li>
@@ -253,8 +277,10 @@
                         <div class="diag-visual-slot">
                             <svg class="neural-grid-mesh" viewBox="0 0 100 60">
                                 <!-- OS shield graphic -->
-                                <path d="M 50 10 Q 30 15, 30 35 Q 50 50, 50 50 Q 50 50, 70 35 Q 70 15, 50 10 Z" fill="none" stroke="var(--secondary-light)" stroke-width="1.5" />
-                                <text x="50" y="32" fill="var(--text-primary)" font-family="Space Mono" font-size="8" text-anchor="middle">ACL</text>
+                                <path d="M 50 10 Q 30 15, 30 35 Q 50 50, 50 50 Q 50 50, 70 35 Q 70 15, 50 10 Z"
+                                    fill="none" stroke="var(--secondary-light)" stroke-width="1.5" />
+                                <text x="50" y="32" fill="var(--text-primary)" font-family="Space Mono" font-size="8"
+                                    text-anchor="middle">ACL</text>
                             </svg>
                         </div>
                     </div>
@@ -268,24 +294,26 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Directory Vault Simulator</h2>
-                <p class="section-subtitle">Select directories below to simulate our zero-knowledge biometric locking</p>
+                <p class="section-subtitle">Select directories below to simulate our zero-knowledge biometric locking
+                </p>
             </div>
-            
+
             <div class="explorer-grid-container hud-border">
                 <div class="scan-laser-overlay" id="row-scan-laser"></div>
-                
+
                 <div class="explorer-header">
                     <span class="explorer-title">
                         <span class="explorer-indicator"></span>
                         FILE SYSTEM MANAGER // SIMULATOR
                     </span>
-                    <span class="monospace" style="font-size: 0.8rem; color: var(--text-light);" id="lock-count-label">LOCKED: 0 // SELECT: 0</span>
+                    <span class="monospace" style="font-size: 0.8rem; color: var(--text-light);"
+                        id="lock-count-label">LOCKED: 0 // SELECT: 0</span>
                 </div>
-                
+
                 <div class="explorer-path-bar">
                     C:\Users\Sonu_io\Documents\Vault\
                 </div>
-                
+
                 <table class="explorer-table">
                     <thead>
                         <tr>
@@ -300,7 +328,7 @@
                         <!-- Dynamic directory rows will be loaded by main.js -->
                     </tbody>
                 </table>
-                
+
                 <div class="explorer-console-deck">
                     <div class="explorer-log-terminal" id="explorer-console-logs">
                         <div class="console-line">> Directory simulation active. Choose directories and lock.</div>
@@ -321,7 +349,7 @@
                 <h2 class="section-title">Key Derivation Pipeline</h2>
                 <p class="section-subtitle">How your biometric face metrics are transformed into AES-256 ciphers</p>
             </div>
-            
+
             <div class="pipeline-flow">
                 <!-- Node 1 -->
                 <div class="pipeline-node">
@@ -364,7 +392,7 @@
                 <h2 class="section-title">Command Installation Terminals</h2>
                 <p class="section-subtitle">Run the terminal code commands below to install FaceFortify directly</p>
             </div>
-            
+
             <div class="download-console-deck hud-border">
                 <div class="download-console-header">
                     <div class="console-dots">
@@ -372,23 +400,28 @@
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                     </div>
-                    <span class="monospace" style="font-size: 0.8rem; color: var(--text-light);">facefortify_deploy.sh</span>
+                    <span class="monospace"
+                        style="font-size: 0.8rem; color: var(--text-light);">facefortify_deploy.sh</span>
                 </div>
-                
+
                 <div class="console-tab-selectors">
                     <button class="console-tab-btn active" data-platform="windows">Windows Terminal</button>
                     <button class="console-tab-btn" data-platform="linux">Linux Bash</button>
                     <button class="console-tab-btn" data-platform="macos">macOS Zsh</button>
                 </div>
-                
+
                 <div class="download-shell-panel">
                     <div class="shell-code-lines" id="shell-cmd-output">
                         <!-- Dynamic output loaded by main.js -->
                     </div>
                     <div class="console-actions-bar">
-                        <span class="monospace" style="font-size: 0.75rem; color: var(--text-light);">size: ~200 MB</span>
+                        <span class="monospace" style="font-size: 0.75rem; color: var(--text-light);">size: ~200
+                            MB</span>
                         <button class="btn btn-secondary" id="btn-copy-shell">COPY COMMAND</button>
-                        <a href="#" class="btn btn-primary" id="btn-direct-download">DIRECT DOWNLOAD</a>
+                        <a href="https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Setup-1.0.0.exe"
+                            class="btn btn-primary" id="btn-direct-download">DIRECT DOWNLOAD</a>
+                        <a href="https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Portable-1.0.0.zip"
+                            class="btn btn-primary" id="btn-portable-download">PORTABLE VERSION</a>
                     </div>
                 </div>
             </div>
@@ -403,35 +436,39 @@
                     <h4>FaceFortify // CMD</h4>
                     <p>Secure local directory vault protection with facial recognition.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Product Commands</h4>
                     <ul>
                         <li><a href="#diagnostic-console">Diagnostics</a></li>
                         <li><a href="#folder-explorer">Explorer Simulator</a></li>
                         <li><a href="#download">Terminals</a></li>
-                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/releases" target="_blank">Latest Releases</a></li>
+                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/releases" target="_blank">Latest
+                                Releases</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Console Documentation</h4>
                     <ul>
                         <li><a href="docs/installation.html">Installation</a></li>
                         <li><a href="docs/security.html">Security</a></li>
-                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/blob/main/docs/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/blob/main/docs/CONTRIBUTING.md"
+                                target="_blank">Contributing</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Legal Agreements</h4>
                     <ul>
-                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/blob/main/LICENSE" target="_blank">MIT License</a></li>
-                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/blob/main/docs/SECURITY.md" target="_blank">Security Policy</a></li>
+                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/blob/main/LICENSE" target="_blank">MIT
+                                License</a></li>
+                        <li><a href="https://github.com/SonuKumar-dev/FaceFortify/blob/main/docs/SECURITY.md"
+                                target="_blank">Security Policy</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 FaceFortify. System code released under MIT License.</p>
             </div>
@@ -441,4 +478,5 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
