@@ -31,7 +31,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="index.html" class="logo">
-                    🔐 <span>FaceFortify // CMD</span>
+                    🔐 <span>FaceFortify</span> <span class="logo-sub">// CMD</span>
                 </a>
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#diagnostic-console">Diagnostics</a></li>
@@ -51,7 +51,7 @@
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                     </button>
-                    <a href="#download" class="btn btn-primary">Init Download</a>
+                    <a href="#download" class="btn btn-primary nav-download-btn">Init Download</a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                         Your Face is Your <span class="gradient-text">Crypto Key</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Lock sensitive local directories with facial recognition. Military-grade AES-256-CBC encryption
+                        Lock sensitive local directories with facial recognition. Military-grade AES-256-GCM encryption
                         bounds cryptographic keys directly to your machine hardware. Zero cloud, zero telemetry.
                     </p>
                     <div class="hero-buttons">
@@ -82,7 +82,7 @@
 
                     <div class="hero-stats">
                         <div class="stat">
-                            <span class="stat-number">AES-256-CBC</span>
+                            <span class="stat-number">AES-256-GCM</span>
                             <span class="stat-label">CIPHER BLOCK MODE</span>
                         </div>
                         <div class="stat">
@@ -162,12 +162,12 @@
                             <h3 class="neon-text-cyan mb-2">ArcFace Neural Network</h3>
                             <p class="mb-3" style="color: var(--text-secondary);">
                                 FaceFortify integrates the state-of-the-art ArcFace AI model directly into your local
-                                machine. The model maps 30 separate coordinates to construct a secure, 512-dimensional
+                                machine. The model maps 22 separate coordinates to construct a secure, 512-dimensional
                                 vector signature.
                             </p>
                             <ul class="mb-3" style="margin-left: 1.5rem; color: var(--text-secondary);">
                                 <li>Accuracy metrics score 99%+ on standard benchmarks</li>
-                                <li>Validation processes 10 verification frames in under 1 second</li>
+                                <li>Validation processes 5 verification frames in under 1 second</li>
                                 <li>Live eye-tracking prevents photo-based spoofing attempts</li>
                             </ul>
                         </div>
@@ -207,7 +207,7 @@
                             <ul class="mb-3" style="margin-left: 1.5rem; color: var(--text-secondary);">
                                 <li>Derives keys using a dynamically generated unique cryptographed salt</li>
                                 <li>Slows dictionary attack attempts down to 10 guesses per second</li>
-                                <li>AES-256-CBC encrypts individual files sequentially</li>
+                                <li>AES-256-GCM encrypts files in 64KB chunks for speed and reliability</li>
                             </ul>
                         </div>
                         <div class="diag-visual-slot">
