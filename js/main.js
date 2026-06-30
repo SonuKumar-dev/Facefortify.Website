@@ -149,8 +149,10 @@ function renderExplorer() {
 // Initial render
 renderExplorer();
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 if (btnLock && btnUnlock) {
-    btnLock.addEventListener('click', () => {
+    btnLock.addEventListener('click', async () => {
         const selectedToLock = mockFiles.filter(f => f.selected && !f.locked);
         if (selectedToLock.length === 0) {
             logConsole("No directories selected for locking.");
@@ -164,38 +166,34 @@ if (btnLock && btnUnlock) {
         logConsole("Requesting Face scan verification...");
         logConsole("Initializing local ArcFace neural network weights...");
 
-        setTimeout(() => {
-            logConsole("Face match verified: Authorized User (Accuracy: 99.85%)");
-            logConsole("Verifying eye movement coordinates: CONFIRMED");
+        await sleep(1200);
+        logConsole("Face match verified: Authorized User (Accuracy: 99.85%)");
+        logConsole("Verifying eye movement coordinates: CONFIRMED");
 
-            setTimeout(() => {
-                logConsole("Deriving hardware ID bind key hashes...");
-                logConsole("Processing PBKDF2 stretching iterations (100,000 passes)...");
+        await sleep(1000);
+        logConsole("Deriving hardware ID bind key hashes...");
+        logConsole("Processing PBKDF2 stretching iterations (100,000 passes)...");
 
-                setTimeout(() => {
-                    logConsole("Locking directories sequentially...");
-                    selectedToLock.forEach(file => {
-                        file.locked = true;
-                        file.selected = false;
-                        // Transform name into mock MD5/AES hash string
-                        file.name = `${file.originalName.toLowerCase().replace(/[^a-z]/g, '')}_${Math.random().toString(36).substring(2, 10)}.enc`;
-                        logConsole(`Protected: ${file.originalName} -> Encrypted to cipher hash.`);
-                    });
+        await sleep(1000);
+        logConsole("Locking directories sequentially...");
+        selectedToLock.forEach(file => {
+            file.locked = true;
+            file.selected = false;
+            // Transform name into mock MD5/AES hash string
+            file.name = `${file.originalName.toLowerCase().replace(/[^a-z]/g, '')}_${Math.random().toString(36).substring(2, 10)}.enc`;
+            logConsole(`Protected: ${file.originalName} -> Encrypted to cipher hash.`);
+        });
 
-                    setTimeout(() => {
-                        if (scanLaser) scanLaser.classList.remove('active');
-                        btnLock.disabled = false;
-                        btnUnlock.disabled = false;
-                        renderExplorer();
-                        updateLabels();
-                        logConsole("All selected directories successfully secured!");
-                    }, 1000);
-                }, 1000);
-            }, 1000);
-        }, 1200);
+        await sleep(1000);
+        if (scanLaser) scanLaser.classList.remove('active');
+        btnLock.disabled = false;
+        btnUnlock.disabled = false;
+        renderExplorer();
+        updateLabels();
+        logConsole("All selected directories successfully secured!");
     });
 
-    btnUnlock.addEventListener('click', () => {
+    btnUnlock.addEventListener('click', async () => {
         const lockedList = mockFiles.filter(f => f.locked);
         if (lockedList.length === 0) {
             logConsole("No directories are locked currently.");
@@ -208,27 +206,24 @@ if (btnLock && btnUnlock) {
 
         logConsole("Decrypt request initiated. Scanning face signature...");
 
-        setTimeout(() => {
-            logConsole("Biometric match confirmed. Applying key matrix...");
-            logConsole("Releasing OS-level ACL block permissions...");
+        await sleep(1200);
+        logConsole("Biometric match confirmed. Applying key matrix...");
+        logConsole("Releasing OS-level ACL block permissions...");
 
-            setTimeout(() => {
-                lockedList.forEach(file => {
-                    file.locked = false;
-                    file.selected = false;
-                    file.name = file.originalName;
-                });
+        await sleep(1000);
+        lockedList.forEach(file => {
+            file.locked = false;
+            file.selected = false;
+            file.name = file.originalName;
+        });
 
-                setTimeout(() => {
-                    if (scanLaser) scanLaser.classList.remove('active');
-                    btnLock.disabled = false;
-                    btnUnlock.disabled = true; // disable decrypt button as all unlocked
-                    renderExplorer();
-                    updateLabels();
-                    logConsole("All directories decrypted successfully!");
-                }, 1000);
-            }, 1000);
-        }, 1200);
+        await sleep(1000);
+        if (scanLaser) scanLaser.classList.remove('active');
+        btnLock.disabled = false;
+        btnUnlock.disabled = true; // disable decrypt button as all unlocked
+        renderExplorer();
+        updateLabels();
+        logConsole("All directories decrypted successfully!");
     });
 }
 
@@ -335,16 +330,46 @@ platformTabBtns.forEach(btn => {
     });
 });
 
+function fallbackCopyText(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            copyBtn.textContent = 'COPIED!';
+            setTimeout(() => {
+                copyBtn.textContent = 'COPY COMMAND';
+            }, 2000);
+        } else {
+            console.error('Fallback copy command failed.');
+        }
+    } catch (err) {
+        console.error('Fallback copy command error: ', err);
+    }
+    document.body.removeChild(textArea);
+}
+
 if (copyBtn) {
     copyBtn.addEventListener('click', () => {
         const activeCmd = platformShells[activePlatform].find(l => l.isCmd);
         if (activeCmd) {
-            navigator.clipboard.writeText(activeCmd.text).then(() => {
-                copyBtn.textContent = 'COPIED!';
-                setTimeout(() => {
-                    copyBtn.textContent = 'COPY COMMAND';
-                }, 2000);
-            });
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(activeCmd.text).then(() => {
+                    copyBtn.textContent = 'COPIED!';
+                    setTimeout(() => {
+                        copyBtn.textContent = 'COPY COMMAND';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    fallbackCopyText(activeCmd.text);
+                });
+            } else {
+                fallbackCopyText(activeCmd.text);
+            }
         }
     });
 }

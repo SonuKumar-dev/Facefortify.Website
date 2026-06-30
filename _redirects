@@ -6,6 +6,11 @@
 /download-mac      https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-macOS-x64.dmg  302
 /download-mac-arm  https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-macOS-arm64.dmg  302
 
+# Redirect old documentation pages to the consolidated documentation hub
+/docs/installation  /docs/index.html#install-windows  301
+/docs/security      /docs/index.html#security-overview  301
+/docs/user-guide    /docs/index.html#getting-started  301
+
 # Redirect to GitHub
 /github            https://github.com/SonuKumar-dev/FaceFortify  301
 /releases          https://github.com/SonuKumar-dev/FaceFortify/releases  301
@@ -14,3 +19,4 @@
 
 # Fallback for 404
 /*  /index.html  200
+

@@ -1460,7 +1460,7 @@ p.section-subtitle {
    Documentation Styling Integration
    ========================================================================== */
 .doc-container {
-    max-width: 1000px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 2rem 4rem 4rem;
 }
@@ -1509,167 +1509,240 @@ p.section-subtitle {
     }
 }
 
-.platform-section,
-.security-section,
-.guide-section {
-    margin-bottom: 4rem;
-    padding: 2.5rem;
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-lg);
-    border-left: 4px solid var(--primary-color);
-    border-top: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+/* Documentation Two-Column Hub Layout */
+.docs-hub-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 3rem;
+    align-items: start;
 }
 
-.platform-section h2,
-.security-section h2,
-.guide-section h2 {
-    font-size: 1.8rem;
+.docs-sidebar {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    padding-right: 1.5rem;
+    border-right: 1px solid var(--border-color);
+}
+
+.docs-sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.docs-sidebar-category {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary-color);
+    margin: 1.5rem 0 0.5rem 0;
+    padding-left: 0.5rem;
+}
+
+.docs-sidebar-category:first-child {
+    margin-top: 0;
+}
+
+.docs-sidebar-item a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Space Mono', monospace;
+    border-left: 2px solid transparent;
+    transition: var(--transition-fast);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.docs-sidebar-item a:hover {
+    color: var(--primary-color);
+    background: rgba(56, 189, 248, 0.03);
+    padding-left: 1rem;
+}
+
+.docs-sidebar-item.active a {
+    color: var(--primary-color);
+    font-weight: 700;
+    border-left-color: var(--primary-color);
+    background: rgba(56, 189, 248, 0.06);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.05);
+}
+
+.docs-content-pane {
+    max-width: 850px;
+}
+
+.docs-section-block {
+    margin-bottom: 5rem;
+    scroll-margin-top: 110px; /* Offset for header nav when clicking anchors */
+}
+
+.docs-section-block:last-child {
+    margin-bottom: 1rem;
+}
+
+.docs-section-block h2 {
+    font-size: 2rem;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
+    text-transform: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    letter-spacing: normal;
+}
+
+.docs-section-block h3 {
+    font-size: 1.3rem;
+    margin: 2.25rem 0 1rem 0;
+    color: var(--primary-color);
     text-transform: none;
     letter-spacing: normal;
 }
 
-.platform-section h3,
-.security-section h3,
-.guide-section h3 {
-    font-size: 1.2rem;
-    margin: 1.5rem 0 1rem;
-    color: var(--primary-color);
-}
-
-.platform-section p,
-.security-section p,
-.guide-section p {
+.docs-section-block p {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
-.platform-section ul,
-.security-section ul,
-.guide-section ul,
-.platform-section ol,
-.security-section ol,
-.guide-section ol {
+.docs-section-block ul,
+.docs-section-block ol {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
     color: var(--text-secondary);
 }
 
-.platform-section li,
-.security-section li,
-.guide-section li {
+.docs-section-block li {
     margin-bottom: 0.5rem;
 }
 
-/* Step Styles in Documentation */
-.step {
+/* Elegant Callout Styles (Removing Indented Boxes) */
+.callout {
     display: flex;
-    gap: 1.5rem;
-    margin: 2rem 0;
-    align-items: flex-start;
-}
-
-@media (max-width: 600px) {
-    .step {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-}
-
-.step-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    border-radius: 50%;
-    font-family: 'Space Mono', monospace;
-    font-weight: 700;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-}
-
-.step-content {
-    flex: 1;
-}
-
-.step strong {
-    display: block;
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-}
-
-/* Callout Box Styles */
-.note,
-.warning,
-.success,
-.tip,
-.feature-box,
-.warning-box,
-.info-box {
+    gap: 1rem;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
     border-radius: var(--radius-md);
-    border-left: 4px solid;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    border-right: 1px solid rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-left: 4px solid var(--primary-color);
     line-height: 1.7;
-}
-
-.note,
-.info-box,
-.feature-box,
-.tip {
     background: rgba(56, 189, 248, 0.05);
-    border-color: var(--primary-color);
     color: var(--text-primary);
 }
 
-.note strong,
-.info-box strong,
-.feature-box strong,
-.tip strong {
+.callout strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.callout.callout-info {
+    border-color: var(--primary-color);
+    background: rgba(56, 189, 248, 0.04);
+}
+
+.callout.callout-info strong {
     color: var(--primary-color);
 }
 
-.warning,
-.warning-box {
-    background: rgba(255, 106, 0, 0.05);
+.callout.callout-warning {
     border-color: var(--accent-color);
-    color: var(--text-primary);
+    background: rgba(255, 106, 0, 0.04);
 }
 
-.warning strong,
-.warning-box strong {
+.callout.callout-warning strong {
     color: var(--accent-color);
 }
 
-.success {
-    background: rgba(39, 201, 63, 0.05);
+.callout.callout-success {
     border-color: #27c93f;
-    color: var(--text-primary);
+    background: rgba(39, 201, 63, 0.04);
 }
 
-.success strong {
+.callout.callout-success strong {
     color: #27c93f;
 }
 
-/* Code Styles */
+.callout-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.callout-body {
+    flex: 1;
+}
+
+/* Vertical Timeline Step System */
+.timeline {
+    position: relative;
+    padding-left: 3rem;
+    margin: 2.5rem 0;
+}
+
+/* The vertical timeline track line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 17px;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+
+.timeline-step:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-number {
+    position: absolute;
+    left: calc(-3rem - 1px);
+    width: 36px;
+    height: 36px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 2;
+    box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.timeline-content {
+    padding-left: 0.5rem;
+}
+
+.timeline-content strong {
+    display: block;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+/* Code & Tables in Docs */
 code {
     background: rgba(255, 255, 255, 0.06);
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius-sm);
     color: var(--primary-light);
     font-family: 'Space Mono', monospace;
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 pre {
@@ -1689,7 +1762,6 @@ pre code {
     font-size: 0.85rem;
 }
 
-/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -1712,4 +1784,52 @@ th {
 
 td {
     color: var(--text-secondary);
+}
+
+/* Responsive adjustments for two-column docs layout */
+@media (max-width: 968px) {
+    .docs-hub-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .docs-sidebar {
+        position: relative;
+        top: 0;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1.5rem;
+        padding-right: 0;
+    }
+    
+    .docs-sidebar-menu {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        scrollbar-width: thin;
+    }
+    
+    .docs-sidebar-category {
+        display: none;
+    }
+    
+    .docs-sidebar-item a {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        white-space: nowrap;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0;
+    }
+    
+    .docs-sidebar-item a:hover {
+        background: none;
+        padding-left: 0.75rem;
+    }
+    
+    .docs-sidebar-item.active a {
+        border-bottom-color: var(--primary-color);
+        background: none;
+        box-shadow: none;
+    }
 }

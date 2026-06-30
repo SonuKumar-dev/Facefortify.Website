@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Hub - FaceFortify</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css?v=1.2.0">
+</head>
+
+<body>
+    <!-- Top Cockpit Nav -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../index.html" class="logo">
+                    🔐 <span>FaceFortify // DOCS</span>
+                </a>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                        🌙
+                    </button>
+                    <a href="../index.html" class="btn btn-primary">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Unified Docs Container -->
+    <div class="doc-container">
+        <div class="doc-header">
+            <h1>FaceFortify Command Documentation</h1>
+            <p>Unified guide covering installation, security mechanics, and day-to-day operations</p>
+        </div>
+
+        <div class="doc-content">
+            <div class="docs-hub-layout">
+                <!-- Sidebar Cockpit -->
+                <aside class="docs-sidebar">
+                    <ul class="docs-sidebar-menu">
+                        <li class="docs-sidebar-category">User Guide</li>
+                        <li class="docs-sidebar-item active"><a href="#getting-started">Getting Started</a></li>
+                        <li class="docs-sidebar-item"><a href="#face-registration">Face Registration</a></li>
+                        <li class="docs-sidebar-item"><a href="#backup-password">Backup Password</a></li>
+                        <li class="docs-sidebar-item"><a href="#locking-folders">Locking Folders</a></li>
+                        <li class="docs-sidebar-item"><a href="#unlocking-folders">Unlocking Folders</a></li>
+                        <li class="docs-sidebar-item"><a href="#managing-folders">Managing Folders</a></li>
+
+                        <li class="docs-sidebar-category">Installation</li>
+                        <li class="docs-sidebar-item"><a href="#install-windows">Windows Setup</a></li>
+                        <li class="docs-sidebar-item"><a href="#install-linux">Linux Setup</a></li>
+                        <li class="docs-sidebar-item"><a href="#install-macos">macOS Setup</a></li>
+
+                        <li class="docs-sidebar-category">Security Architecture</li>
+                        <li class="docs-sidebar-item"><a href="#security-overview">Architecture Overview</a></li>
+                        <li class="docs-sidebar-item"><a href="#cryptography">Encryption Standards</a></li>
+                        <li class="docs-sidebar-item"><a href="#biometrics">Biometric Engine</a></li>
+                        <li class="docs-sidebar-item"><a href="#hardware-binding">Hardware Bindings</a></li>
+                        <li class="docs-sidebar-item"><a href="#privacy-storage">Privacy & Storage</a></li>
+                        <li class="docs-sidebar-item"><a href="#threat-model">Threat Matrix</a></li>
+                        <li class="docs-sidebar-item"><a href="#recovery">Backup & Recovery</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Reading Pane -->
+                <main class="docs-content-pane">
+                    <!-- SECTION: Getting Started -->
+                    <section id="getting-started" class="docs-section-block">
+                        <h2>Getting Started</h2>
+                        <p>Welcome to FaceFortify. This utility provides cryptographic protection for your local directories, securing files directly on your machine through biometric facial recognition, hardware binding, and zero-knowledge AES-256 encryption.</p>
+                        
+                        <h3>First Launch</h3>
+                        <p>When launching FaceFortify for the first time on your desktop computer:</p>
+                        <ol>
+                            <li>The application will prompt you to grant <strong>camera permissions</strong>. Allow camera access.</li>
+                            <li>You will be directed to the initialization page. Click <strong>"Get Started"</strong>.</li>
+                            <li>Enter your user name. This name is used solely for console display greetings and profile labeling; it is not uploaded to any remote server.</li>
+                        </ol>
+                        <div class="callout callout-info">
+                            <div class="callout-icon">💡</div>
+                            <div class="callout-body">
+                                <strong>Tip:</strong> Input a clean, recognizable profile name. If multiple users register profiles on the same hardware system, this profile identity tracks settings independently.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION: Face Registration -->
+                    <section id="face-registration" class="docs-section-block">
+                        <h2>Face Registration</h2>
+                        <p>FaceFortify captures 30 diagnostic frames of your face to create a mathematical face fingerprint. This registration process takes between 30 and 60 seconds.</p>
+                        
+                        <h3>Registration Best Practices</h3>
+                        <ul>
+                            <li><strong>Good Lighting:</strong> Face a window or light source. Avoid direct backlighting, which obscures facial coordinates.</li>
+                            <li><strong>Positioning:</strong> Sit directly in front of the lens. Look straight ahead.</li>
+                            <li><strong>Green Box Validation:</strong> Keep your head inside the green rectangle displayed on screen.</li>
+                            <li><strong>No Obstructions:</strong> Temporarily remove hats, sunglasses, or bulky scarves. Normal vision-correction glasses are acceptable.</li>
+                        </ul>
+
+                        <div class="callout callout-warning">
+                            <div class="callout-icon">⚠️</div>
+                            <div class="callout-body">
+                                <strong>Anti-Spoofing:</strong> The ArcFace system maps eye coordinates to detect eye movement. Both eyes must remain visible inside the camera frame. If you wear glasses, make sure glare does not cover your pupils.
+                            </div>
+                        </div>
+
+                        <h3>Troubleshooting Registration</h3>
+                        <ul>
+                            <li><strong>"No face detected":</strong> Move slightly closer to the webcam or adjust the screen angle.</li>
+                            <li><strong>"No eyes detected":</strong> Ensure light isn't creating reflections on your eyeglasses.</li>
+                        </ul>
+                        <div class="callout callout-success">
+                            <div class="callout-icon">✅</div>
+                            <div class="callout-body">
+                                <strong>Success state:</strong> Once the counter hits 30/30 frames, your face fingerprint is compiled into a 512-dimensional vector. The temporary camera images are permanently deleted.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION: Backup Password -->
+                    <section id="backup-password" class="docs-section-block">
+                        <h2>Backup Password</h2>
+                        <p>Biometric authentication is highly secure, but changes in physical hardware (motherboard replacement, CPU upgrade) will change your cryptographic salt and break the automatic key derivation pipeline.</p>
+                        
+                        <h3>Why a Backup Password is Required</h3>
+                        <p>To avoid permanent data loss when transferring files between devices or recovering from hardware failure, FaceFortify allows you to establish a strong backup password. This password behaves as a recovery key that can decrypt vaults without hardware bindings or biometric validation.</p>
+
+                        <h3>How to Configure</h3>
+                        <ol>
+                            <li>Navigate to the **Settings** console (gear icon).</li>
+                            <li>Select the **Backup Password** section.</li>
+                            <li>Click **"Set Backup Password"** and input a strong combination.</li>
+                            <li>Store this password in a secure password manager.</li>
+                        </ol>
+
+                        <div class="callout callout-warning">
+                            <div class="callout-icon">⚠️</div>
+                            <div class="callout-body">
+                                <strong>No Backdoor:</strong> There is no master recovery system or cloud password reset. If you lose your computer hardware AND forget your backup password, your encrypted vaults are mathematically unrecoverable.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION: Locking Folders -->
+                    <section id="locking-folders" class="docs-section-block">
+                        <h2>Locking Folders</h2>
+                        <p>Locking is the process of encrypting folder contents and locking OS-level directory control permissions.</p>
+
+                        <h3>How to Lock a Folder</h3>
+                        <ol>
+                            <li>Click <strong>"Add Folder"</strong> in the dashboard navigation.</li>
+                            <li>Browse your local directory structure and select the target folder.</li>
+                            <li>Verify the path is added to your secure folders list.</li>
+                            <li>Click <strong>"Lock All"</strong> or click the individual lock icon next to the folder path.</li>
+                            <li>Look at the webcam for a quick 10-frame validation scan.</li>
+                        </ol>
+
+                        <h3>What Happens Under the Hood</h3>
+                        <ul>
+                            <li>Every file inside the directory is sequentially encrypted using a generated AES-256 key.</li>
+                            <li>Files are given an encrypted signature structure, and file headers are randomized.</li>
+                            <li>OS-level Access Control Lists (ACLs on Windows) or permissions (chmod on Linux/macOS) are updated to restrict reading or writing to the directory.</li>
+                        </ul>
+
+                        <div class="callout callout-warning">
+                            <div class="callout-icon">⚠️</div>
+                            <div class="callout-body">
+                                <strong>Safety Warning:</strong> Do not attempt to lock operating system folders (e.g. <code>C:\Windows</code> or <code>/usr/bin</code>) or directories where applications are currently writing data. This will crash your system or corrupt files.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION: Unlocking Folders -->
+                    <section id="unlocking-folders" class="docs-section-block">
+                        <h2>Unlocking Folders</h2>
+                        <p>Unlocking generates your cryptographic key, decrypts the directories, and restores standard access rights.</p>
+
+                        <h3>How to Unlock</h3>
+                        <ol>
+                            <li>Open the FaceFortify dashboard.</li>
+                            <li>Click <strong>"Unlock All"</strong> or click the unlock button on a specific vault directory.</li>
+                            <li>Align your face in the camera frame. The application will scan 10 frames (~5-10 seconds).</li>
+                            <li>Upon validation, directory permissions are opened and files are decrypted back to their original formats.</li>
+                        </ol>
+
+                        <h3>If Verification Fails</h3>
+                        <p>If you have a beard, poor lighting, or a camera issue:</p>
+                        <ol>
+                            <li>Click the <strong>"Use Backup Password"</strong> action on the scanning screen.</li>
+                            <li>Input your recovery password.</li>
+                            <li>Folders will immediately decrypt, bypassing the biometric and hardware binding checks.</li>
+                        </ol>
+                    </section>
+
+                    <!-- SECTION: Managing Folders -->
+                    <section id="managing-folders" class="docs-section-block">
+                        <h2>Managing Folders</h2>
+                        <p>You can manage and monitor your vaults directly from the dashboard listing page.</p>
+                        
+                        <h3>Removing Directories</h3>
+                        <p>If you no longer need biometric shielding on a folder, you can remove it from the tracking list. **Always unlock the folder first before removing it.**</p>
+                        <div class="callout callout-warning">
+                            <div class="callout-icon">⚠️</div>
+                            <div class="callout-body">
+                                <strong>Orphaned Vaults:</strong> If you remove a folder from the dashboard while it is still in a locked state, it will remain encrypted on your hard drive. You will need to re-add the folder to the dashboard list to decrypt it.
+                            </div>
+                        </div>
+
+                        <h3>Dashboard Shortcuts</h3>
+                        <ul>
+                            <li><code>Ctrl + L</code> (Cmd + L on Mac): Instantly lock all folders.</li>
+                            <li><code>Ctrl + U</code> (Cmd + U on Mac): Open biometric validation screen to decrypt all.</li>
+                            <li><code>Ctrl + ,</code> (Cmd + , on Mac): Open Settings page.</li>
+                        </ul>
+                    </section>
+
+                    <!-- SECTION: Windows Installation -->
+                    <section id="install-windows" class="docs-section-block">
+                        <h2>Windows Setup Guide</h2>
+                        <p>Installation instructions for Microsoft Windows platforms.</p>
+
+                        <h3>System Requirements</h3>
+                        <ul>
+                            <li>Windows 10 or Windows 11 (64-bit architecture)</li>
+                            <li>500 MB free hard drive storage space</li>
+                            <li>Webcam (built-in or external USB)</li>
+                            <li>Administrator permissions (for initial setup)</li>
+                        </ul>
+
+                        <h3>Installation Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-step">
+                                <span class="timeline-number">1</span>
+                                <div class="timeline-content">
+                                    <strong>Download the Installer</strong>
+                                    <p>Download <code>FaceFortify-Setup-1.2.0.exe</code> from the download panel or run the PowerShell terminal script command on the home screen.</p>
+                                    <div class="callout callout-info">
+                                        <div class="callout-icon">💡</div>
+                                        <div class="callout-body">
+                                            <strong>Note:</strong> Browsers might tag new, unsigned installer files as suspicious. Select "Keep" to save the file.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">2</span>
+                                <div class="timeline-content">
+                                    <strong>Execute Installer</strong>
+                                    <p>Double-click the installer file to run it.</p>
+                                    <div class="callout callout-warning">
+                                        <div class="callout-icon">⚠️</div>
+                                        <div class="callout-body">
+                                            <strong>SmartScreen Bypass:</strong> If Windows Defender prompts you with a warning, select <strong>"More info"</strong> and click <strong>"Run anyway"</strong>. This warning occurs because the installer is unsigned.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">3</span>
+                                <div class="timeline-content">
+                                    <strong>Setup Wizard</strong>
+                                    <p>Follow the prompt choices. Check the box to add a desktop shortcut if desired, and click <strong>"Install"</strong>. The installation process takes approximately 30 seconds.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">4</span>
+                                <div class="timeline-content">
+                                    <strong>Finalize Launch</strong>
+                                    <p>Click finish to launch FaceFortify. Grant webcam permissions when Windows prompts you.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Uninstallation</h3>
+                        <p>Go to Settings → Apps → Installed Apps → FaceFortify → Uninstall. Your settings and encrypted vaults are located in your local user space (<code>%APPDATA%\FaceFortify</code>). If you wish to delete them, you must remove this folder manually.</p>
+                    </section>
+
+                    <!-- SECTION: Linux Installation -->
+                    <section id="install-linux" class="docs-section-block">
+                        <h2>Linux Setup Guide</h2>
+                        <p>Installation instructions for Linux distributions.</p>
+
+                        <h3>System Requirements</h3>
+                        <ul>
+                            <li>Modern Linux kernel version 4.0 or newer</li>
+                            <li>x86_64 CPU architecture</li>
+                            <li>FUSE support (required to run AppImage formats)</li>
+                            <li>Camera with Video4Linux2 (V4L2) driver support</li>
+                        </ul>
+
+                        <h3>Installation Steps</h3>
+                        <div class="timeline">
+                            <div class="timeline-step">
+                                <span class="timeline-number">1</span>
+                                <div class="timeline-content">
+                                    <strong>Download AppImage</strong>
+                                    <p>Download the latest <code>FaceFortify-Linux-x86_64.AppImage</code> binary.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">2</span>
+                                <div class="timeline-content">
+                                    <strong>Change Permissions</strong>
+                                    <p>Open your command line and run the execute permission command:</p>
+                                    <pre><code>chmod +x FaceFortify-Linux-x86_64.AppImage</code></pre>
+                                    <p>Alternatively, right-click the file in your desktop GUI manager, go to Properties → Permissions, and check **"Allow executing file as program"**.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">3</span>
+                                <div class="timeline-content">
+                                    <strong>Execute and Mount</strong>
+                                    <p>Launch FaceFortify by double-clicking the file or executing it from the terminal shell:</p>
+                                    <pre><code>./FaceFortify-Linux-x86_64.AppImage</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Camera Access Note</h3>
+                        <p>If FaceFortify displays a blank screen or cannot connect to the camera device, verify group access configuration by adding your user profile to the local video group:</p>
+                        <pre><code>sudo usermod -aG video $USER</code></pre>
+                        <p>Then log out and log back in to apply changes.</p>
+                    </section>
+
+                    <!-- SECTION: macOS Installation -->
+                    <section id="install-macos" class="docs-section-block">
+                        <h2>macOS Setup Guide</h2>
+                        <p>Installation instructions for Apple macOS systems.</p>
+
+                        <h3>Requirements & Versions</h3>
+                        <ul>
+                            <li>macOS 10.15 (Catalina) or newer</li>
+                            <li>Intel Macs: Download <code>FaceFortify-macOS-x64.dmg</code></li>
+                            <li>Apple Silicon (M1/M2/M3) Macs: Download <code>FaceFortify-macOS-arm64.dmg</code></li>
+                        </ul>
+
+                        <h3>Installation Steps</h3>
+                        <div class="timeline">
+                            <div class="timeline-step">
+                                <span class="timeline-number">1</span>
+                                <div class="timeline-content">
+                                    <strong>Mount the DMG</strong>
+                                    <p>Double-click the downloaded DMG file to open the volume disk.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">2</span>
+                                <div class="timeline-content">
+                                    <strong>Drag to Applications</strong>
+                                    <p>Drag the FaceFortify application icon directly into your Applications directory window.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">3</span>
+                                <div class="timeline-content">
+                                    <strong>Bypass Gatekeeper</strong>
+                                    <p>Due to the app being unsigned, opening it normally will show a warning saying the developer cannot be verified.</p>
+                                    <div class="callout callout-warning">
+                                        <div class="callout-icon">⚠️</div>
+                                        <div class="callout-body">
+                                            <strong>Bypass Steps:</strong> Go to Applications → Right-click (or Control+click) FaceFortify → Select **"Open"** from the drop-down menu → Click **"Open"** on the confirmation prompt. This is only required on the first launch.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <span class="timeline-number">4</span>
+                                <div class="timeline-content">
+                                    <strong>Authorize System Permissions</strong>
+                                    <p>When prompted by macOS, click **"OK"** to grant camera access. If you click deny, open System Settings → Privacy & Security → Camera, and toggle FaceFortify to active status.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION: Architecture Overview -->
+                    <section id="security-overview" class="docs-section-block">
+                        <h2>Security Architecture Overview</h2>
+                        <p>FaceFortify uses a defense-in-depth security approach that requires both biometric authentication and hardware binding validation to generate decryption keys. It is built as a zero-knowledge local utility, meaning no security keys or biometric files are sent to the cloud.</p>
+                        
+                        <h3>The Defense-in-Depth Layer Stack</h3>
+                        <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                            <thead>
+                                <tr style="background: var(--bg-tertiary);">
+                                    <th style="padding: 0.75rem; border: 1px solid var(--border-color);">Layer</th>
+                                    <th style="padding: 0.75rem; border: 1px solid var(--border-color);">Mechanism</th>
+                                    <th style="padding: 0.75rem; border: 1px solid var(--border-color);">Mitigates Against</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color); font-weight:700;">1. Physical</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">User must have device access.</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">Remote network attacks.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color); font-weight:700;">2. OS Access</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">Account credentials and privileges.</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">Unauthorized local users on other logins.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color); font-weight:700;">3. Biometric</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">ArcFace 512-dimension verification.</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">Stolen account sessions, password leaks.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color); font-weight:700;">4. Hardware</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">CPU/Motherboard signature hash binds.</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">Stolen disk drives, copied key files.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color); font-weight:700;">5. Cryptography</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">AES-256-CBC with PBKDF2.</td>
+                                    <td style="padding: 0.75rem; border: 1px solid var(--border-color);">Brute-force attacks, offline forensics.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- SECTION: Cryptography -->
+                    <section id="cryptography" class="docs-section-block">
+                        <h2>Encryption Standards</h2>
+                        <p>FaceFortify implements industry-standard cryptography models to guarantee local file integrity.</p>
+
+                        <h3>AES-256-CBC Encryption</h3>
+                        <p>Every file within a locked directory is encrypted individually using Advanced Encryption Standard (AES) with a 256-bit key length in Cipher Block Chaining (CBC) mode. This configuration is approved by government agencies for protecting top-secret data.</p>
+                        
+                        <h3>PBKDF2 Key Derivation</h3>
+                        <p>Your biometric vector is not used directly as the decryption key. Instead, the biometric signature is processed through Password-Based Key Derivation Function 2 (PBKDF2):</p>
+                        <ul>
+                            <li>Processes the inputs through 100,000 iterations of HMAC-SHA256.</li>
+                            <li>Slows dictionary attack attempts down to 10 guesses per second.</li>
+                            <li>Applies a unique salt generated for your specific machine profile.</li>
+                        </ul>
+                    </section>
+
+                    <!-- SECTION: Biometrics -->
+                    <section id="biometrics" class="docs-section-block">
+                        <h2>Biometric Engine</h2>
+                        <p>Details of our local, offline facial recognition system.</p>
+
+                        <h3>ArcFace Deep Learning Model</h3>
+                        <p>FaceFortify packages a localized deployment of the ArcFace neural network. This network maps facial topology by tracking coordinates, generating a 512-dimensional vector description. This model boasts a 99%+ accuracy rating on public benchmarks and adapts to changes in hair, facial features, aging, and glasses.</p>
+
+                        <h3>Live Eye Tracking</h3>
+                        <p>To prevent photo-spoofing attacks (where someone holds up a printout or digital photo of your face to your webcam), the application maps and verifies live eye-blinking and pupil movements. A static image will fail this tracking step and be rejected.</p>
+                    </section>
+
+                    <!-- SECTION: Hardware Bindings -->
+                    <section id="hardware-binding" class="docs-section-block">
+                        <h2>Hardware Bindings</h2>
+                        <p>Linking files cryptographically to the host hardware.</p>
+
+                        <h3>How It Works</h3>
+                        <p>During registration, FaceFortify queries your system hardware to extract structural details, including:</p>
+                        <ol>
+                            <li>The CPU hardware serial identifier.</li>
+                            <li>The motherboard manufacturer and board serial number.</li>
+                            <li>The MAC addresses of active network interfaces.</li>
+                        </ol>
+                        <p>These strings are combined and hashed to generate a unique **Machine ID**. This ID is mixed into the PBKDF2 key derivation pipeline as a key salt. Because of this binding, copying your encrypted files to another computer will fail decryption, even if an attacker has your biometric signature.</p>
+                    </section>
+
+                    <!-- SECTION: Privacy & Storage -->
+                    <section id="privacy-storage" class="docs-section-block">
+                        <h2>Privacy & Storage</h2>
+                        <p>FaceFortify is built with privacy in mind. No telemetry or analytics modules are built into the app's packages.</p>
+
+                        <h3>File System Storage Locations</h3>
+                        <p>Settings, biometric parameters, and locked registry files are stored in your user configuration directories:</p>
+                        <ul>
+                            <li><strong>Windows:</strong> <code>C:\Users\[Username]\AppData\Roaming\FaceFortify</code></li>
+                            <li><strong>Linux:</strong> <code>~/.local/share/FaceFortify</code></li>
+                            <li><strong>macOS:</strong> <code>~/Library/Application Support/FaceFortify</code></li>
+                        </ul>
+
+                        <h3>Database Profiles</h3>
+                        <ul>
+                            <li><code>face.dat</code>: The compiled mathematical face representation (512 numbers).</li>
+                            <li><code>keyinfo.dat</code>: Key derivation salts and verification hashes.</li>
+                            <li><code>folders.json</code>: A list tracking which folders are locked.</li>
+                        </ul>
+                    </section>
+
+                    <!-- SECTION: Threat Matrix -->
+                    <section id="threat-model" class="docs-section-block">
+                        <h2>Threat Matrix</h2>
+                        <p>Understanding what FaceFortify protects against and its security limitations.</p>
+
+                        <h3>Protected Risks</h3>
+                        <ul>
+                            <li><strong>Laptop Loss or Theft:</strong> Stolen drives remain encrypted and unreadable without your biometrics and hardware.</li>
+                            <li><strong>Disk Removal:</strong> Removing the hard drive and connecting it to another system fails decryption because the hardware binding signatures won't match.</li>
+                            <li><strong>Shared Computer Access:</strong> Unauthorized family members, colleagues, or roommates cannot access your locked vaults.</li>
+                        </ul>
+
+                        <h3>Out of Scope Risks</h3>
+                        <ul>
+                            <li><strong>System Keyloggers:</strong> Active malware with keylogger access can intercept backup passwords if typed.</li>
+                            <li><strong>Root/Admin Access Malware:</strong> If a virus gains root-level permissions on your active session, it can dump memory hashes or capture video streams.</li>
+                            <li><strong>Physical Coercion:</strong> The application has no defense if you are physically forced to unlock your device.</li>
+                        </ul>
+                    </section>
+
+                    <!-- SECTION: Recovery -->
+                    <section id="recovery" class="docs-section-block">
+                        <h2>Backup & Recovery</h2>
+                        <p>How to recover your files if your system fails or your biometrics change.</p>
+                        
+                        <h3>Recovery Scenarios</h3>
+                        <p><strong>Scenario A: System hardware fails (motherboard or CPU dies)</strong></p>
+                        <ul>
+                            <li>Install FaceFortify on your new replacement computer.</li>
+                            <li>Launch the recovery prompt.</li>
+                            <li>Input your **Backup Password** to decrypt and restore your vaults.</li>
+                        </ul>
+
+                        <div class="callout callout-warning">
+                            <div class="callout-icon">⚠️</div>
+                            <div class="callout-body">
+                                <strong>Important:</strong> If you do not configure a backup password, files on a failed motherboard or CPU cannot be decrypted on a new system. Take 5 minutes to set a backup password!
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Cockpit -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FaceFortify. System documentation released under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarItems = document.querySelectorAll('.docs-sidebar-item');
+            const sections = document.querySelectorAll('.docs-section-block');
+            
+            // Theme toggle behavior
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isLight = document.body.classList.toggle('light-mode');
+                    themeToggle.textContent = isLight ? '☀️' : '🌙';
+                    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                });
+                
+                // Sync theme with localStorage
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-mode');
+                    themeToggle.textContent = '☀️';
+                } else {
+                    document.body.classList.remove('light-mode');
+                    themeToggle.textContent = '🌙';
+                }
+            }
+
+            // Scrollspy scroll active item tracking
+            function updateActiveState() {
+                let currentSectionId = '';
+                const scrollPosition = window.scrollY + 120; // offset
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                if (currentSectionId) {
+                    sidebarItems.forEach(item => {
+                        const link = item.querySelector('a');
+                        if (link && link.getAttribute('href') === `#${currentSectionId}`) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', updateActiveState);
+            updateActiveState(); // run once on load
+        });
+    </script>
+</body>
+
+</html>

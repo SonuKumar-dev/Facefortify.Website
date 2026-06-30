@@ -11,8 +11,22 @@
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.shields.io; frame-ancestors 'none';"
 
+[[redirects]]
+  from = "/docs/installation"
+  to = "/docs/index.html#install-windows"
+  status = 301
 
+[[redirects]]
+  from = "/docs/security"
+  to = "/docs/index.html#security-overview"
+  status = 301
+
+[[redirects]]
+  from = "/docs/user-guide"
+  to = "/docs/index.html#getting-started"
+  status = 301
 
 [[redirects]]
   from = "/download"
@@ -28,3 +42,4 @@
   from = "/releases"
   to = "https://github.com/SonuKumar-dev/FaceFortify/releases"
   status = 301
+
