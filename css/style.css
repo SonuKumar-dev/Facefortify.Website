@@ -169,6 +169,12 @@ body::before {
     padding: 0 4rem;
 }
 
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
 /* Monospace text blocks */
 .monospace {
     font-family: 'Space Mono', monospace;
@@ -440,7 +446,7 @@ h2 {
     transition: var(--transition);
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1080px) {
     .hamburger-menu {
         display: block;
     }
@@ -842,7 +848,7 @@ h2 {
     }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1080px) {
     .diag-container {
         grid-template-columns: 1fr;
     }
@@ -1145,7 +1151,7 @@ h2 {
     color: var(--text-light);
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1080px) {
     .pipeline-flow {
         flex-direction: column;
     }
@@ -1336,7 +1342,7 @@ p.section-subtitle {
     width: 100%;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1080px) {
     .container {
         padding: 0 2rem;
     }
@@ -1422,6 +1428,11 @@ p.section-subtitle {
     /* Hide nav primary download button to save space */
     .nav .nav-download-btn {
         display: none !important;
+    }
+
+    /* Center-align footer sections on mobile */
+    .footer-section {
+        text-align: center;
     }
 
     /* Responsive margins */
@@ -1797,7 +1808,7 @@ td {
 }
 
 /* Responsive adjustments for two-column docs layout */
-@media (max-width: 968px) {
+@media (max-width: 1080px) {
     .docs-hub-layout {
         display: flex;
         flex-direction: column;
