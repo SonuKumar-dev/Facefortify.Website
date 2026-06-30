@@ -67,7 +67,7 @@ diagButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         diagButtons.forEach(b => b.classList.remove('active'));
         diagPanels.forEach(p => p.classList.remove('active'));
-        
+
         btn.classList.add('active');
         const tabId = btn.getAttribute('data-tab');
         const activePanel = document.getElementById(tabId);
@@ -113,16 +113,16 @@ function updateLabels() {
 function renderExplorer() {
     if (!listBody) return;
     listBody.innerHTML = '';
-    
+
     mockFiles.forEach(file => {
         const tr = document.createElement('tr');
         tr.className = `explorer-tr ${file.selected ? 'selected' : ''} ${file.locked ? 'locked-row' : ''}`;
-        
+
         const lockIcon = file.locked ? '🔒' : '📁';
         const fileIcon = file.type === 'Key File' ? '🔑' : lockIcon;
         const currentName = file.name;
         const currentPermission = file.locked ? 'SECURELY ENCRYPTED (AES-256)' : 'Read/Write (Unlocked)';
-        
+
         tr.innerHTML = `
             <td class="explorer-td"><span class="file-select-checkbox"></span></td>
             <td class="explorer-td"><span class="file-name-cell">${fileIcon} ${currentName}</span></td>
@@ -130,7 +130,7 @@ function renderExplorer() {
             <td class="explorer-td">${file.type}</td>
             <td class="explorer-td monospace">${currentPermission}</td>
         `;
-        
+
         // Select row click listener (except when locked)
         tr.addEventListener('click', (e) => {
             if (file.locked) {
@@ -141,7 +141,7 @@ function renderExplorer() {
             renderExplorer();
             updateLabels();
         });
-        
+
         listBody.appendChild(tr);
     });
 }
@@ -156,22 +156,22 @@ if (btnLock && btnUnlock) {
             logConsole("No directories selected for locking.");
             return;
         }
-        
+
         btnLock.disabled = true;
         btnUnlock.disabled = true;
         if (scanLaser) scanLaser.classList.add('active');
-        
+
         logConsole("Requesting Face scan verification...");
         logConsole("Initializing local ArcFace neural network weights...");
-        
+
         setTimeout(() => {
             logConsole("Face match verified: Authorized User (Accuracy: 99.85%)");
             logConsole("Verifying eye movement coordinates: CONFIRMED");
-            
+
             setTimeout(() => {
                 logConsole("Deriving hardware ID bind key hashes...");
                 logConsole("Processing PBKDF2 stretching iterations (100,000 passes)...");
-                
+
                 setTimeout(() => {
                     logConsole("Locking directories sequentially...");
                     selectedToLock.forEach(file => {
@@ -181,7 +181,7 @@ if (btnLock && btnUnlock) {
                         file.name = `${file.originalName.toLowerCase().replace(/[^a-z]/g, '')}_${Math.random().toString(36).substring(2, 10)}.enc`;
                         logConsole(`Protected: ${file.originalName} -> Encrypted to cipher hash.`);
                     });
-                    
+
                     setTimeout(() => {
                         if (scanLaser) scanLaser.classList.remove('active');
                         btnLock.disabled = false;
@@ -201,24 +201,24 @@ if (btnLock && btnUnlock) {
             logConsole("No directories are locked currently.");
             return;
         }
-        
+
         btnLock.disabled = true;
         btnUnlock.disabled = true;
         if (scanLaser) scanLaser.classList.add('active');
-        
+
         logConsole("Decrypt request initiated. Scanning face signature...");
-        
+
         setTimeout(() => {
             logConsole("Biometric match confirmed. Applying key matrix...");
             logConsole("Releasing OS-level ACL block permissions...");
-            
+
             setTimeout(() => {
                 lockedList.forEach(file => {
                     file.locked = false;
                     file.selected = false;
                     file.name = file.originalName;
                 });
-                
+
                 setTimeout(() => {
                     if (scanLaser) scanLaser.classList.remove('active');
                     btnLock.disabled = false;
@@ -237,19 +237,19 @@ const cockpitReadout = document.getElementById('cockpit-readout');
 if (cockpitReadout) {
     setInterval(() => {
         const lines = [
-            `> face_matrix_coords: X:${(Math.random()*100).toFixed(2)} Y:${(Math.random()*100).toFixed(2)} Z:${(Math.random()*50).toFixed(2)}`,
-            `> eye_tracking_confidence: ${(85 + Math.random()*14).toFixed(1)}%`,
-            `> landmarks_captured: ${Math.floor(25 + Math.random()*6)}/30`,
+            `> face_matrix_coords: X:${(Math.random() * 100).toFixed(2)} Y:${(Math.random() * 100).toFixed(2)} Z:${(Math.random() * 50).toFixed(2)}`,
+            `> eye_tracking_confidence: ${(85 + Math.random() * 14).toFixed(1)}%`,
+            `> landmarks_captured: ${Math.floor(25 + Math.random() * 6)}/30`,
             `> system_load_status: nominal`,
-            `> pbkdf2_hash_speed: ${(110 + Math.random()*20).toFixed(0)}ms`
+            `> pbkdf2_hash_speed: ${(110 + Math.random() * 20).toFixed(0)}ms`
         ];
         const randomLine = lines[Math.floor(Math.random() * lines.length)];
-        
+
         const lineElement = document.createElement('div');
         lineElement.className = 'readout-line';
         lineElement.textContent = randomLine;
         cockpitReadout.appendChild(lineElement);
-        
+
         if (cockpitReadout.children.length > 5) {
             cockpitReadout.removeChild(cockpitReadout.firstElementChild);
         }
@@ -259,20 +259,20 @@ if (cockpitReadout) {
 // Terminal-Style Download script logic
 const platformShells = {
     windows: [
-        { 
-            text: 'powershell -Command "iwr -useb https://facefortify.netlify.app/install.ps1 | iex"', 
-            isCmd: true, 
-            downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Setup-1.0.0.exe',
-            portableLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Portable-1.0.0.zip'
+        {
+            text: 'powershell -Command "iwr -useb https://facefortify.netlify.app/install.ps1 | iex"',
+            isCmd: true,
+            downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.2.0/FaceFortify-Setup-1.2.0.exe',
+            portableLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.2.0/FaceFortify-Portable-1.2.0.zip'
         },
         { text: 'Checking system compatibility... Windows 10/11 x64 detected.', isCmd: false },
         { text: 'Downloading FaceFortify Installer (~200MB)...', isCmd: false },
         { text: 'Installation directory set: C:\\Program Files\\FaceFortify', isCmd: false }
     ],
     linux: [
-        { 
-            text: 'curl -fsSL https://facefortify.netlify.app/install.sh | sh', 
-            isCmd: true, 
+        {
+            text: 'curl -fsSL https://facefortify.netlify.app/install.sh | sh',
+            isCmd: true,
             downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-1.0.0.AppImage',
             portableLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-1.0.0.tar.gz'
         },
@@ -281,9 +281,9 @@ const platformShells = {
         { text: 'Symlinking application to /usr/local/bin/facefortify...', isCmd: false }
     ],
     macos: [
-        { 
-            text: 'curl -fsSL https://facefortify.netlify.app/mac-install.sh | bash', 
-            isCmd: true, 
+        {
+            text: 'curl -fsSL https://facefortify.netlify.app/mac-install.sh | bash',
+            isCmd: true,
             downloadLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-1.0.0.dmg',
             portableLink: 'https://github.com/SonuKumar-dev/FaceFortify/releases/download/v1.0.0/FaceFortify-Portable-1.0.0-mac.zip'
         },
@@ -303,7 +303,7 @@ let activePlatform = 'windows';
 function renderShell(platform) {
     if (!shellOutput) return;
     shellOutput.innerHTML = '';
-    
+
     const lines = platformShells[platform];
     lines.forEach(line => {
         const div = document.createElement('div');
@@ -311,7 +311,7 @@ function renderShell(platform) {
         div.textContent = line.text;
         shellOutput.appendChild(div);
     });
-    
+
     // Update Direct & Portable Download Links
     const activeLine = lines.find(l => l.downloadLink);
     if (downloadBtn) {
@@ -329,7 +329,7 @@ platformTabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         platformTabBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        
+
         activePlatform = btn.getAttribute('data-platform');
         renderShell(activePlatform);
     });
@@ -356,7 +356,7 @@ const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLe
 document.addEventListener('keydown', (e) => {
     konamiCode.push(e.key);
     konamiCode = konamiCode.slice(-10);
-    
+
     if (konamiCode.join(',') === konamiSequence.join(',')) {
         console.log('🎮 Konami Code activated! You found the secret!');
         document.body.style.animation = 'rainbow 3s linear infinite';

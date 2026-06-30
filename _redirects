@@ -1,7 +1,7 @@
 # Netlify Redirects
 
 # Redirect short URLs to GitHub
-/download-windows  https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-Setup-1.0.0.exe  302
+/download-windows  https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-Setup-1.2.0.exe  302
 /download-linux    https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-Linux-x86_64.AppImage  302
 /download-mac      https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-macOS-x64.dmg  302
 /download-mac-arm  https://github.com/SonuKumar-dev/FaceFortify/releases/latest/download/FaceFortify-macOS-arm64.dmg  302
