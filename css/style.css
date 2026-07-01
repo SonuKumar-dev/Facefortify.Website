@@ -456,6 +456,7 @@ h2 {
         top: 0;
         right: 0;
         width: 300px;
+        max-width: 100%;
         height: 100vh;
         background: var(--bg-secondary);
         border-left: 1px solid var(--border-color);
@@ -533,6 +534,7 @@ h2 {
 .hero-buttons {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .hero-stats {
@@ -544,6 +546,11 @@ h2 {
     padding: 1.5rem;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
 }
 
 .stat-number {
@@ -679,8 +686,10 @@ h2 {
         gap: 3rem;
     }
 
-    .hero-buttons {
-        flex-direction: column;
+    .biometric-scanner-cockpit {
+        max-width: 420px;
+        margin: 0 auto;
+        width: 100%;
     }
 }
 
@@ -858,12 +867,29 @@ h2 {
         overflow-x: auto;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
+        scrollbar-width: thin;
+    }
+
+    .diag-tabs-menu::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .diag-tabs-menu::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: var(--radius-sm);
     }
 
     .diag-tab-btn {
         border-bottom: none;
         border-right: 1px solid var(--border-color);
         flex-shrink: 0;
+    }
+
+    .diag-tab-btn.active {
+        border-left: none;
+        border-bottom: 3px solid var(--primary-color);
+        padding-left: 1.5rem;
+        padding-bottom: calc(1.25rem - 3px);
     }
 
     .diag-panel-layout {
@@ -925,6 +951,31 @@ h2 {
     font-family: 'Space Mono', monospace;
     font-size: 0.8rem;
     color: var(--text-secondary);
+}
+
+.explorer-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.explorer-table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.explorer-table-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.explorer-table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+}
+
+.explorer-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
 }
 
 /* Files Explorer Table list */
@@ -1377,6 +1428,16 @@ p.section-subtitle {
         font-size: 1.25rem;
     }
 
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .diag-panel-content {
+        padding: 1.5rem;
+    }
+
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
@@ -1393,12 +1454,48 @@ p.section-subtitle {
         font-size: 2.2rem;
     }
 
+    .hero-tag {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+    }
+
     /* Hide non-critical explorer columns to prevent horizontal overflow */
     .explorer-table th:nth-child(3),
     .explorer-table td:nth-child(3),
     .explorer-table th:nth-child(4),
     .explorer-table td:nth-child(4) {
         display: none !important;
+    }
+
+    .explorer-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .console-tab-selectors {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .console-tab-selectors::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .console-tab-selectors::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: var(--radius-sm);
+    }
+
+    .console-tab-btn {
+        flex-shrink: 0;
+    }
+
+    .download-shell-panel {
+        padding: 1.5rem;
     }
 
     /* Stack console actions vertically */
@@ -1434,22 +1531,11 @@ p.section-subtitle {
     .footer-section {
         text-align: center;
     }
-
-    /* Responsive margins */
-    .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
 }
 
 @media (max-width: 480px) {
     .container {
         padding: 0 1.25rem;
-    }
-
-    .diag-panel-content {
-        padding: 1.5rem;
     }
 
     .diag-visual-slot {
@@ -1469,6 +1555,12 @@ p.section-subtitle {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1.1rem;
     }
 }
 
@@ -1840,6 +1932,15 @@ td {
         max-width: 100%;
         box-sizing: border-box;
         white-space: nowrap;
+    }
+
+    .docs-sidebar-menu::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .docs-sidebar-menu::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: var(--radius-sm);
     }
     
     .docs-content-pane {
